@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= title
+  h1 Please log in
   p Welcome to #{title}
+
+  form(
+    method="POST"
+    action="/log-in"
+  )
+  label(for="username")
+  input(
+    type="text"
+    name="username"
+    placeholder="username"
+  )
+  label(for="password")
+  input(
+    type="password"
+    name="password"
+  )
