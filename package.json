@@ -1,0 +1,48 @@
+{
+  "name": "trade-crypto-coins",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js","scripts": {
+    "start": "npm run build && node ./dist/bin/www.js",
+    "build": "rm -rf /dist && tsc -p . && node minify.js",
+    "dev": "nodemon ./src/bin/www.ts -e ts,json,pug,css",
+    "serverstart": "SET DEBUG=express-locallibrary-tutorial:* & npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "express-rate-limit": "^6.7.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^6.1.5",
+    "http-errors": "~1.6.3",
+    "luxon": "^3.3.0",
+    "mongoose": "^7.0.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.2",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.17",
+    "@types/express-rate-limit": "^6.0.0",
+    "@types/express-validator": "^3.0.0",
+    "@types/helmet": "^4.0.0",
+    "@types/http-errors": "^2.0.1",
+    "@types/luxon": "^3.3.0",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.15.11",
+    "@types/pug": "^2.0.6",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "uglify-js": "^3.17.4"
+  }
+}
