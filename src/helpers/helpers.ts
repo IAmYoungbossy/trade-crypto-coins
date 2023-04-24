@@ -1,11 +1,12 @@
 import { Request, Response, NextFunction } from "express";
 
-const index_get = (
+const setCurrentUserObjToLocal = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  res.render("index");
+  res.locals.currentUser = req.user;
+  next();
 };
 
-export default index_get;
+export default setCurrentUserObjToLocal;

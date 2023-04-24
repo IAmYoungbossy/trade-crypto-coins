@@ -10,12 +10,13 @@ import errorHandler, {
 } from "./controllers/errorController";
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
+import logInRoute from "./routes/log-in";
+import logOutRoute from "./routes/log-out";
 import signUpRoute from "./routes/sign-up";
+import setCurrentUserObjToLocal from "./helpers/helpers";
 import LocalStrategy from "./passportConfig/localStrategy";
 import deserializeUserObj from "./passportConfig/deserialize";
 import serializeUserForSession from "./passportConfig/serialize";
-import logInRoute from "./routes/log-in";
-import logOutRoute from "./routes/log-out";
 
 const app = express();
 
@@ -44,6 +45,10 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve("src", "public")));
 
+// Makes logged in user object available throughout the app
+app.use(setCurrentUserObjToLocal);
+
+// Routes
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/log-in", logInRoute);
