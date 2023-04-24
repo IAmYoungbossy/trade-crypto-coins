@@ -6,7 +6,7 @@ import { CustomError } from "../bin/www";
 mongoose.set("strictQuery", false);
 
 // Define the database URL to connect to.
-const mongoDB = "mongodb://127.0.0.1:27017/bookstore";
+const mongoDB = "mongodb://127.0.0.1:27017/crypto-trade";
 
 interface IConnectToDb {
   onListening: () => void;
