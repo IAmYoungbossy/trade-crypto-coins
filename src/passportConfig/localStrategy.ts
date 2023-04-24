@@ -1,3 +1,4 @@
+import bcrypt from "bcryptjs";
 import User from "../models/userModel";
 import passportLocal from "passport-local";
 
@@ -20,12 +21,15 @@ async function authenticateUser(
         message: "Incorrect username",
       });
     }
-    if (user.password !== password) {
-      return done(null, false, {
-        message: "Incorrect password",
-      });
-    }
-    return done(null, user);
+    bcrypt.compare(password, user.password, (err, res) => {
+      if (res) {
+        return done(null, user);
+      } else {
+        return done(null, false, {
+          message: "Incorrect password",
+        });
+      }
+    });
   } catch (err) {
     return done(err);
   }
