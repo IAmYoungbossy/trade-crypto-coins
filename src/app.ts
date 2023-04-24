@@ -11,6 +11,7 @@ import errorHandler, {
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 import signUpRoute from "./routes/sign-up";
+import LocalStrategy from "./passportConfig/localStrategy";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+passport.use(LocalStrategy);
 app.use(passport.initialize());
 app.use(passport.session());
 
