@@ -1,6 +1,8 @@
 import path from "path";
 import logger from "morgan";
 import express from "express";
+import passport from "passport";
+import session from "express-session";
 import cookieParser from "cookie-parser";
 
 import errorHandler, {
@@ -14,6 +16,17 @@ const app = express();
 // view engine setup
 app.set("views", path.resolve("src", "views"));
 app.set("view engine", "pug");
+
+// Session
+app.use(
+  session({
+    secret: "cats",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Middleware
 app.use(logger("dev"));
