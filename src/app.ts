@@ -15,6 +15,7 @@ import LocalStrategy from "./passportConfig/localStrategy";
 import deserializeUserObj from "./passportConfig/deserialize";
 import serializeUserForSession from "./passportConfig/serialize";
 import logInRoute from "./routes/log-in";
+import logOutRoute from "./routes/log-out";
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use(express.static(path.resolve("src", "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/log-in", logInRoute);
+app.use("/log-out", logOutRoute);
 app.use("/sign-up", signUpRoute);
 
 // Forward error to err handler
