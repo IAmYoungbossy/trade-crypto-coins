@@ -10,6 +10,7 @@ import errorHandler, {
 } from "./controllers/errorController";
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
+import signUpRoute from "./routes/sign-up";
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use(express.static(path.resolve("src", "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/sign-up", signUpRoute);
 
 // Forward error to err handler
 app.use(catchErrorAndForward);
