@@ -12,6 +12,8 @@ import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 import signUpRoute from "./routes/sign-up";
 import LocalStrategy from "./passportConfig/localStrategy";
+import deserializeUserObj from "./passportConfig/deserialize";
+import serializeUserForSession from "./passportConfig/serialize";
 
 const app = express();
 
@@ -28,6 +30,8 @@ app.use(
   })
 );
 passport.use(LocalStrategy);
+passport.serializeUser(serializeUserForSession);
+passport.deserializeUser(deserializeUserObj);
 app.use(passport.initialize());
 app.use(passport.session());
 
