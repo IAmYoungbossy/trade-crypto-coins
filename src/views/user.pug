@@ -2,4 +2,6 @@ extends layout
 
 block content  
     h1 WELCOME BACK #{currentUser.first_name}
+    a(href=`/user/${currentUser._id}/buy`) Buy
+    br
     a(href="/log-out") LOG OUT

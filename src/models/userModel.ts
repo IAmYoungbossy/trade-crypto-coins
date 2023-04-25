@@ -2,6 +2,7 @@ import { Document, Schema, model } from "mongoose";
 
 interface IUserSchema {
   email: string;
+  crypto?: string;
   username: string;
   password: string;
   last_name: string;
@@ -19,6 +20,7 @@ const UserSchema = new Schema(
     password: { type: String, required: true },
     last_name: { type: String, required: true },
     first_name: { type: String, required: true },
+    crypto: { type: String, enum: ["bitcoin", "ethereum"] },
   },
   { timestamps: true }
 );

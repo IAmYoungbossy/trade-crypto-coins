@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Buy #{currentUser.crypto}
+  form(action="", method='post')
+    label(for='amount') Amount:
+    input(type='number', name='amount', required)
+    label(for='walletAddress') Wallet Address:
+    input(type='text', name='walletAddress', required)
+    label(for='paymentScreenshot') Payment Screenshot:
+    input(type='file', name='paymentScreenshot', required)
+    button(type='submit') Submit
