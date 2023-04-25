@@ -9,6 +9,7 @@ import userRoute from "./routes/users";
 import errorHandler, {
   catchErrorAndForward,
 } from "./controllers/errorController";
+import adminRouter from "./routes/admin";
 import indexRouter from "./routes/index";
 import logOutRoute from "./routes/log-out";
 import signUpRoute from "./routes/sign-up";
@@ -50,6 +51,7 @@ app.use(setCurrentUserObjToLocal);
 // Routes
 app.use("/", indexRouter);
 app.use("/user", userRoute);
+app.use("/admin", adminRouter);
 app.use("/log-out", logOutRoute);
 app.use("/sign-up", signUpRoute);
 

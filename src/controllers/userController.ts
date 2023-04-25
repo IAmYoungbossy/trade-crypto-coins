@@ -6,22 +6,25 @@ const user_get = async (
   res: Response,
   next: NextFunction
 ) => {
-  if (!res.locals.currentUser._id) res.redirect("/");
-  const userId = res.locals.currentUser._id;
+  console.log(res.locals.currentUser);
 
-  const [pending, completed] = await Promise.all([
-    Transaction.find({
-      user: userId,
-      status: "pending",
-    }),
-    Transaction.find({
-      user: userId,
-      status: ["cancelled", "approved"],
-    }),
-  ]);
-  console.log(pending, completed);
+  if (!res.locals.currentUser) res.redirect("/");
+  else {
+    const userId = res.locals.currentUser._id;
 
-  res.render("user", { pending, completed });
+    const [pending, completed] = await Promise.all([
+      Transaction.find({
+        user: userId,
+        status: "pending",
+      }),
+      Transaction.find({
+        user: userId,
+        status: { $in: ["approved", "cancelled"] },
+      }),
+    ]);
+
+    res.render("user", { pending, completed });
+  }
 };
 
 export default user_get;

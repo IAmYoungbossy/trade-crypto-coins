@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    h1 Admin Dashboard
+    h2 Pending Transactions
+    table
+        tr
+            th Transaction ID
+            th Amount
+            th Wallet Address
+            th Payment Screenshot
+            th User
+            th Action
+        each transaction in pending
+            tr
+                td= transaction._id
+                td= transaction.amount
+                td= transaction.walletAddress
+                td= transaction.paymentScreenshot
+                td= transaction.user
+                td
+                    form(
+                        method="post"
+                        action=`/admin/approve-transaction/${transaction._id}`
+                    )
+                        button(type="submit") Approve
+                    form(
+                        method="post"
+                        action=`/admin/cancel-transaction/${transaction._id}`
+                    )
+                        button(type="submit") Cancel
+
+    h2 Approved Transactions
+    table
+        tr
+            th Transaction ID
+            th Amount
+            th Wallet Address
+            th Payment Screenshot
+            th User
+        each transaction in approved
+            tr
+                td= transaction._id
+                td= transaction.amount
+                td= transaction.walletAddress
+                td= transaction.paymentScreenshot
+                td= transaction.user
+
+    h2 Cancelled Transactions
+    table
+        tr
+            th Transaction ID
+            th Amount
+            th Wallet Address
+            th Payment Screenshot
+            th User
+        each transaction in cancelled
+            tr
+                td= transaction._id
+                td= transaction.amount
+                td= transaction.walletAddress
+                td= transaction.paymentScreenshot
+                td= transaction.user
