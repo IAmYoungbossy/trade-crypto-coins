@@ -7,8 +7,12 @@ const TransactionSchema = new Schema(
       required: true,
       type: Schema.Types.ObjectId,
     },
+    status: {
+      type: String,
+      default: "pending",
+      enum: ["pending", "approved", "cancelled"],
+    },
     amount: { type: Number, required: true },
-    approved: { type: Boolean, default: false },
     walletAddress: { type: String, required: true },
     paymentScreenshot: { type: String, required: true },
   },

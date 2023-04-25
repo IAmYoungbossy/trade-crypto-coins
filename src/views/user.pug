@@ -5,3 +5,67 @@ block content
     a(href=`/user/${currentUser._id}/buy`) Buy
     br
     a(href="/log-out") LOG OUT
+    main 
+        h2 Pending transactions
+        if pending.length === 0
+            p No pending pending found
+        else
+            table
+                thead
+                    tr
+                        th Transaction ID
+                        th Amount
+                        th Wallet Address
+                        th Payment Screenshot
+                        th Status
+                tbody
+                    each transaction in pending
+                        tr
+                            td= transaction._id
+                            td #{transaction.amount}
+                            td= transaction.walletAddress
+                            //- td
+                            //-     img(src=transaction.paymentScreenshot)
+                            td= transaction.status
+        h2 Approved transactions
+        if approved.length === 0
+            p No approved transaction
+        else
+            table
+                thead
+                    tr
+                        th Transaction ID
+                        th Amount
+                        th Wallet Address
+                        th Payment Screenshot
+                        th Status
+                tbody
+                    each transaction in approved
+                        tr
+                            td= transaction._id
+                            td #{transaction.amount}
+                            td= transaction.walletAddress
+                            //- td
+                            //-     img(src=transaction.paymentScreenshot)
+                            td= transaction.status
+        h2 5 recent completed transactions
+        if approved.length === 0
+            p No transaction has been completed yet.
+        else
+            table
+                thead
+                    tr
+                        th Transaction ID
+                        th Amount
+                        th Wallet Address
+                        th Payment Screenshot
+                        th Status
+                tbody
+                    each transaction in approved
+                        tr
+                            td= transaction._id
+                            td #{transaction.amount}
+                            td= transaction.walletAddress
+                            //- td
+                            //-     img(src=transaction.paymentScreenshot)
+                            td= transaction.status
