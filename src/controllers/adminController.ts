@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
-import { Response, Request, NextFunction } from "express";
 import Transaction from "../models/transactionModel";
+import { Response, Request, NextFunction } from "express";
 
 export const admin_get = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -9,6 +9,8 @@ export const admin_get = asyncHandler(
       await Transaction.find({ status: "approved" }),
       await Transaction.find({ status: "cancelled" }),
     ]);
+
+    if (!res.locals.currentUser) res.redirect("/");
 
     res.render("admin", {
       pending,

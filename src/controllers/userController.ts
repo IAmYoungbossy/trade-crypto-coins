@@ -6,8 +6,6 @@ const user_get = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(res.locals.currentUser);
-
   if (!res.locals.currentUser) res.redirect("/");
   else {
     const userId = res.locals.currentUser._id;

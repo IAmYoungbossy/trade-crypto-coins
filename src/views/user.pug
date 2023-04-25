@@ -24,8 +24,12 @@ block content
                             td= transaction._id
                             td #{transaction.amount}
                             td= transaction.walletAddress
-                            //- td
-                            //-     img(src=transaction.paymentScreenshot)
+                            td
+                                img(
+                                    width="60px"
+                                    href="Payment Screenshot"
+                                    src=`/images/${transaction.paymentScreenshot}` 
+                                )
                             td= transaction.status
 
         h2 Completed transactions
@@ -46,6 +50,10 @@ block content
                             td= transaction._id
                             td #{transaction.amount}
                             td= transaction.walletAddress
-                            //- td
-                            //-     img(src=transaction.paymentScreenshot)
+                            td
+                                img(
+                                    width="25px"
+                                    href="Payment Screenshot"
+                                    src=`/images/${transaction.paymentScreenshot}` 
+                                )
                             td= transaction.status

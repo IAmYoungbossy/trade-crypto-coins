@@ -9,20 +9,20 @@ userRoute.get("/:id", user_get);
 
 userRoute.get("/:id/buy", (req, res) => {
   const id = req.params.id;
-  console.log(res.locals.currentUser);
   if (!res.locals.currentUser) res.redirect("/");
   res.render("buy", { id });
 });
 
 userRoute.post("/:id/buy", async (req, res) => {
   const id = req.params.id;
-  const { amount, walletAddress, paymentScreenshot } = req.body;
+  const { amount, walletAddress } = req.body;
   try {
+    console.log(req.file);
     const transaction = new Transaction({
       amount,
       user: id,
       walletAddress,
-      paymentScreenshot,
+      paymentScreenshot: req.file?.filename,
     });
     await transaction.save();
     res.redirect(`/user/${id}`);

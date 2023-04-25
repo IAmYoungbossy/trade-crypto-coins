@@ -15,6 +15,11 @@ interface IUser extends Document, IUserSchema {}
 const UserSchema = new Schema(
   {
     phone_numner: String,
+    role: {
+      type: String,
+      default: "user",
+      enum: ["user", "admin"],
+    },
     email: { type: String, required: true },
     username: { type: String, required: true },
     password: { type: String, required: true },

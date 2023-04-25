@@ -2,7 +2,10 @@ extends layout
 
 block content
   h1 Buy #{currentUser.crypto}
-  form(action="", method='post')
+  form(
+    action="", method='post' 
+    enctype="multipart/form-data"
+  )
     label(for='amount') Amount:
     input(type='number', name='amount', required)
     label(for='walletAddress') Wallet Address:

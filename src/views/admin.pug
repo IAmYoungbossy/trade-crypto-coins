@@ -1,63 +1,91 @@
 extends layout
 
 block content
-    h1 Admin Dashboard
-    h2 Pending Transactions
-    table
-        tr
-            th Transaction ID
-            th Amount
-            th Wallet Address
-            th Payment Screenshot
-            th User
-            th Action
-        each transaction in pending
-            tr
-                td= transaction._id
-                td= transaction.amount
-                td= transaction.walletAddress
-                td= transaction.paymentScreenshot
-                td= transaction.user
-                td
-                    form(
-                        method="post"
-                        action=`/admin/approve-transaction/${transaction._id}`
-                    )
-                        button(type="submit") Approve
-                    form(
-                        method="post"
-                        action=`/admin/cancel-transaction/${transaction._id}`
-                    )
-                        button(type="submit") Cancel
+    h1 Hello, admin #{currentUser.first_name}
+    br
+    a(href="/log-out") LOG OUT
+    main
+        h1 Admin Dashboard
+        h2 Pending Transactions
+        if pending.length === 0
+            p No pending transaction.
+        else
+            table
+                tr
+                    th Transaction ID
+                    th Amount
+                    th Wallet Address
+                    th Payment Screenshot
+                    th User
+                    th Action
+                each transaction in pending
+                    tr
+                        td= transaction._id
+                        td= transaction.amount
+                        td= transaction.walletAddress
+                        td= transaction.user
+                        td 
+                            img(
+                                width="60px"
+                                href="Payment Screenshot"
+                                src=`/images/${transaction.paymentScreenshot}`
+                            )
+                        td
+                            form(
+                                method="post"
+                                action=`/admin/approve-transaction/${transaction._id}`
+                            )
+                                button(type="submit") Approve
+                            form(
+                                method="post"
+                                action=`/admin/cancel-transaction/${transaction._id}`
+                            )
+                                button(type="submit") Cancel
 
-    h2 Approved Transactions
-    table
-        tr
-            th Transaction ID
-            th Amount
-            th Wallet Address
-            th Payment Screenshot
-            th User
-        each transaction in approved
-            tr
-                td= transaction._id
-                td= transaction.amount
-                td= transaction.walletAddress
-                td= transaction.paymentScreenshot
-                td= transaction.user
+        h2 Approved Transactions
+        if approved.length === 0
+            p No approved transaction.
+        else
+            table
+                tr
+                    th Transaction ID
+                    th Amount
+                    th Wallet Address
+                    th Payment Screenshot
+                    th User
+                each transaction in approved
+                    tr
+                        td= transaction._id
+                        td= transaction.amount
+                        td= transaction.walletAddress
+                        td= transaction.user
+                        td 
+                            img(
+                                width="60px"
+                                href="Payment Screenshot"
+                                src=`/images/${transaction.paymentScreenshot}`
+                            )
 
-    h2 Cancelled Transactions
-    table
-        tr
-            th Transaction ID
-            th Amount
-            th Wallet Address
-            th Payment Screenshot
-            th User
-        each transaction in cancelled
-            tr
-                td= transaction._id
-                td= transaction.amount
-                td= transaction.walletAddress
-                td= transaction.paymentScreenshot
-                td= transaction.user
+        h2 Cancelled Transactions
+        if cancelled.length === 0
+            p No cancelled transaction.
+        else
+            table
+                tr
+                    th Transaction ID
+                    th Amount
+                    th Wallet Address
+                    th Payment Screenshot
+                    th User
+                each transaction in cancelled
+                    tr
+                        td= transaction._id
+                        td= transaction.amount
+                        td= transaction.walletAddress
+                        td= transaction.user
+                        td 
+                            img(
+                                width="60px"
+                                href="Payment Screenshot"
+                                src=`/images/${transaction.paymentScreenshot}`
+                            ) 

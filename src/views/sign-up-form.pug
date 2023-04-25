@@ -6,15 +6,33 @@ block content
         action="" 
         method="POST"
     )
-        label(for="username") Username 
+        label(for="username") Username: 
         input(
             type="text"
             name="username"
             placeholder="username"
         )
-        label(for="password") Password 
+        label(for="password") Password: 
         input(
             name="password"
             type="password"
+        )
+        label(for="first_name") First Name: 
+        input(
+            type="text"
+            name="first_name"
+            placeholder="Letam"
+        )
+        label(for="last_name") Last Name 
+        input(
+            type="text"
+            name="last_name"
+            placeholder="Barinua"
+        )
+        label(for="email") Email: 
+        input(
+            name="email"
+            type="email"
+            placeholder="nomail@post.go"
         )
         button Sign Up
