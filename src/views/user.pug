@@ -27,30 +27,10 @@ block content
                             //- td
                             //-     img(src=transaction.paymentScreenshot)
                             td= transaction.status
-        h2 Approved transactions
-        if approved.length === 0
-            p No approved transaction
-        else
-            table
-                thead
-                    tr
-                        th Transaction ID
-                        th Amount
-                        th Wallet Address
-                        th Payment Screenshot
-                        th Status
-                tbody
-                    each transaction in approved
-                        tr
-                            td= transaction._id
-                            td #{transaction.amount}
-                            td= transaction.walletAddress
-                            //- td
-                            //-     img(src=transaction.paymentScreenshot)
-                            td= transaction.status
-        h2 5 recent completed transactions
-        if approved.length === 0
-            p No transaction has been completed yet.
+
+        h2 Completed transactions
+        if completed.length === 0
+            p No completed transaction yet.
         else
             table
                 thead
