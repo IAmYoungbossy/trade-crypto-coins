@@ -5,7 +5,8 @@ const user_get = (
   res: Response,
   next: NextFunction
 ) => {
-  res.send("respond with a resource");
+  if (!res.locals.currentUser) res.redirect("/");
+  res.render("user");
 };
 
 export default user_get;

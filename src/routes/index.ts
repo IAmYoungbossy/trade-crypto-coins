@@ -1,9 +1,17 @@
-import express from "express";
+import passport from "passport";
+import { Router } from "express";
 import index_get from "../controllers/indexController";
 
-const router = express.Router();
+const indexRouter = Router();
+const authenticateUser = passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/",
+});
 
-/* GET home page. */
-router.get("/", index_get);
+// Gets home page
+indexRouter.get("/", index_get);
 
-export default router;
+// Gets user account or redirect to home
+indexRouter.post("/", authenticateUser);
+
+export default indexRouter;

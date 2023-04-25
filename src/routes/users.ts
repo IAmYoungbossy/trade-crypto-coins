@@ -1,9 +1,9 @@
 import express from "express";
 import user_get from "../controllers/userController";
 
-const router = express.Router();
+const userRoute = express.Router();
 
 /* GET user account. */
-router.get("/", user_get);
+userRoute.get("/:id", user_get);
 
-export default router;
+export default userRoute;

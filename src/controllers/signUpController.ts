@@ -11,8 +11,14 @@ export const sign_up_get = (
 
 export const sign_up_post = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const username = req.body.username;
-    const password = req.body.password;
+    const {
+      email,
+      username,
+      password,
+      last_name,
+      first_name,
+      phone_numner,
+    } = req.body;
 
     // Hash the password using bcrypt
     bcrypt.hash(password, 10, async (err, hashedPassword) => {
@@ -23,7 +29,11 @@ export const sign_up_post = asyncHandler(
 
       // Create a new user with the hashed password
       const user = new User({
-        username: username,
+        email,
+        username,
+        last_name,
+        first_name,
+        phone_numner,
         password: hashedPassword,
       });
 

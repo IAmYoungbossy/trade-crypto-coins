@@ -5,12 +5,11 @@ import passport from "passport";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 
+import userRoute from "./routes/users";
 import errorHandler, {
   catchErrorAndForward,
 } from "./controllers/errorController";
 import indexRouter from "./routes/index";
-import usersRouter from "./routes/users";
-import logInRoute from "./routes/log-in";
 import logOutRoute from "./routes/log-out";
 import signUpRoute from "./routes/sign-up";
 import setCurrentUserObjToLocal from "./helpers/helpers";
@@ -50,8 +49,7 @@ app.use(setCurrentUserObjToLocal);
 
 // Routes
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/log-in", logInRoute);
+app.use("/user", userRoute);
 app.use("/log-out", logOutRoute);
 app.use("/sign-up", signUpRoute);
 

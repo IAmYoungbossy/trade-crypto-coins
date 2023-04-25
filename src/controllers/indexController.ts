@@ -5,7 +5,11 @@ const index_get = (
   res: Response,
   next: NextFunction
 ) => {
-  res.render("index");
+  if (res.locals.currentUser)
+    res.redirect(
+      `/user/${res.locals.currentUser._id.toString()}`
+    );
+  else res.render("index");
 };
 
 export default index_get;
