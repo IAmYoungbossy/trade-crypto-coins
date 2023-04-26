@@ -2,9 +2,19 @@
   width: 100%;
   margin: auto;
   overflow-x: auto;
-  max-width: 900px;
+  max-width: 600px;
   font-family: sans-serif;
   box-shadow: 0px 2px 11px 0px #00000045;
+}
+
+.section {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.title {
+  margin: 0.3rem 0;
 }
 
 main table {
@@ -19,7 +29,23 @@ main table {
 table th,
 table td {
   text-align: left;
+  color: #0c0049;
   padding: 0.625rem;
+  font-family: sans-serif;
+}
+
+td a,
+.buy_coin {
+  font-size: 11px;
+  font-weight: 600;
+  border: 0.1rem solid;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.5rem;
+  font-family: sans-serif;
+}
+
+.buy_coin {
+  font-size: 1.3rem;
 }
 
 table tr {
@@ -78,4 +104,56 @@ table tr > td:last-child > div {
   display: flex;
   padding-left: 10px;
   position: absolute;
+}
+
+.currency {
+  width: 100%;
+  gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 1rem 0 1.5rem;
+  justify-content: space-evenly;
+}
+
+.crypto_card {
+  flex: 1px;
+  display: flex;
+  padding: 0.5rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 0px 2px 11px 0px #00000045;
+}
+
+.crypto_card > div:last-of-type p {
+  color: #145b94;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+.instruction,
+.welcome {
+  color: #294546;
+}
+
+.welcome {
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.available_coin p {
+  font-size: 1rem;
+  color: #65330e;
+  font-weight: 600;
+  margin-top: 15px;
+  font-family: sans-serif;
+  text-decoration: underline;
+}
+
+.available_coin {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
 }

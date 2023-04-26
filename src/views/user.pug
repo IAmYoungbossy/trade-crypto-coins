@@ -2,43 +2,59 @@ extends layout
 
 block content  
     main 
-        p Welcome back #{currentUser.first_name}.
+        p.welcome Hello #{currentUser.first_name}, great to have you here.
+        p.instruction Click the button below to buy your favourite cryptocurrency.
         br
-        a(href=`/user/${currentUser._id}/buy`) Buy
-        h2 Pending transactions
-        if pending.length === 0
-            p No pending pending found
-        else
-            #table_container
-                table
-                    thead
-                        tr
-                            th S/N
-                            th Name
-                            th Amount
-                            th Wallet Address
-                            //- th Payment Screenshot
-                            th Status
-                            th Screenshot
-                    tbody
-                        each transaction in pending
-                            - var counter = 1
+        a(href=`/user/${currentUser._id}/buy` class="buy_coin") Buy Coin
+        .available_coin
+            p Available coins
+        .currency
+            .crypto_card 
+                div 
+                    img(src="/images/btc.png" alt="Bitcoin")
+                div 
+                    p Pair: BTC/NGN
+                    p Price: NGN 22,328,962.50
+            .crypto_card 
+                div 
+                    img(src="/images/eth.png" alt="Ethereum")
+                div 
+                    p Pair: ETH/NGN
+                    p Price: NGN 1,364,632.50
+        .section
+            h2.title Pending transactions
+            if pending.length === 0
+                p No pending pending found
+            else
+                #table_container
+                    table
+                        thead
                             tr
-                                td #{counter}
-                                td #{currentUser.first_name} #{currentUser.last_name}
-                                td #{transaction.amount}
-                                td= transaction.walletAddress
-                                //- td
-                                //-     img(
-                                //-         width="60px"
-                                //-         href="Payment Screenshot"
-                                //-         src=`/images/${transaction.paymentScreenshot}` 
-                                //-     )
-                                td= transaction.status
-                                td #[a("/") View Details]
-                                - counter++
+                                th S/N
+                                th Name
+                                th Amount
+                                //- th Wallet Address
+                                //- th Payment Screenshot
+                                th Status
+                                th Screenshot
+                        tbody
+                            each transaction, index in pending
+                                tr
+                                    td #{index + 1}
+                                    td #{currentUser.first_name} #{currentUser.last_name}
+                                    td #{transaction.amount}
+                                    //- td= transaction.walletAddress
+                                    //- td
+                                    //-     img(
+                                    //-         width="60px"
+                                    //-         href="Payment Screenshot"
+                                    //-         src=`/images/${transaction.paymentScreenshot}` 
+                                    //-     )
+                                    td= transaction.status
+                                    td #[a(href="/") View Details]
 
-            h2 Completed transactions
+        .section
+            h2.title Completed transactions
             if completed.length === 0
                 p No completed transaction yet.
             else
