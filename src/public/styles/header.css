@@ -1,8 +1,9 @@
 /* Header Styles */
 header {
   width: 100%;
+  line-height: 1;
+  padding: 1.25rem 3rem;
   background-color: #fff;
-  padding: 1.25rem 1.25rem;
   box-shadow: 0px 2px 11px 0px #00000045;
 }
 

@@ -1,38 +1,52 @@
 extends layout
 
 block content
-    h1 Sign Up 
-    form(
-        action="" 
-        method="POST"
-    )
-        label(for="username") Username: 
-        input(
-            type="text"
-            name="username"
-            placeholder="username"
+    main 
+        p Sign Up 
+        form(
+            action="" 
+            method="POST"
         )
-        label(for="password") Password: 
-        input(
-            name="password"
-            type="password"
-        )
-        label(for="first_name") First Name: 
-        input(
-            type="text"
-            name="first_name"
-            placeholder="Letam"
-        )
-        label(for="last_name") Last Name 
-        input(
-            type="text"
-            name="last_name"
-            placeholder="Barinua"
-        )
-        label(for="email") Email: 
-        input(
-            name="email"
-            type="email"
-            placeholder="nomail@post.go"
-        )
-        button Sign Up
+            div
+                label(for="username") Username: 
+                input(
+                    type="text"
+                    name="username"
+                    placeholder="username"
+                )
+
+            div
+                label(for="password") Password: 
+                input(
+                    name="password"
+                    type="password"
+                )
+
+            div
+                label(for="first_name") First Name: 
+                input(
+                    type="text"
+                    name="first_name"
+                    placeholder="Letam"
+                )
+
+            div 
+                label(for="last_name") Last Name 
+                input(
+                    type="text"
+                    name="last_name"
+                    placeholder="Barinua"
+                )
+
+            div
+                label(for="email") Email: 
+                input(
+                    name="email"
+                    type="email"
+                    placeholder="nomail@post.go"
+                )
+
+            div 
+                a(href="/") Login
+
+            button Sign Up

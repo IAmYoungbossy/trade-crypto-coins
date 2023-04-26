@@ -3,11 +3,14 @@ import User from "../models/userModel";
 import asyncHandler from "express-async-handler";
 import { Response, Request, NextFunction } from "express";
 
-export const sign_up_get = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => res.render("sign-up-form");
+export const sign_up_get = (req: Request, res: Response) => {
+  const STYLE = "login";
+  const SUB_STYLE = "login_sub_style";
+  res.render("sign-up-form", {
+    style: STYLE,
+    login_sub_style: SUB_STYLE,
+  });
+};
 
 export const sign_up_post = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {

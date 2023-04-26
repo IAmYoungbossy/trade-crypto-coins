@@ -6,6 +6,8 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href=`/styles/header.css`)
     link(rel="stylesheet" href=`/styles/${style}.css`)
+    if login_sub_style
+      link(rel="stylesheet" href=`/styles/${login_sub_style}.css`)
     link(rel="stylesheet" href=`/styles/globalStyle.css`)
     title= title
   body

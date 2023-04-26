@@ -1,0 +1,10 @@
+form > div:last-of-type {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: right;
+  text-decoration: underline;
+}
+
+button {
+  margin: 0.25rem 0;
+}
