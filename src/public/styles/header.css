@@ -1,20 +1,32 @@
 /* Header Styles */
 header {
   width: 100%;
+  color: wheat;
   line-height: 1;
   padding: 1.25rem 3rem;
-  background-color: #fff;
+  background-color: #263d54;
   box-shadow: 0px 2px 11px 0px #00000045;
 }
 
 header a {
+  all: unset;
+  color: wheat;
   cursor: pointer;
-  color: #0025cd;
   font-family: sans-serif;
 }
 
-header a:hover {
-  color: red;
+nav a,
+header > div > div:last-of-type a {
+  font-weight: 600;
+  border: 0.1rem solid;
+  display: inline-block;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.6rem;
+}
+nav a:hover,
+header > div > div:last-of-type a:hover {
+  color: #263d54;
+  background-color: wheat;
 }
 
 header > div {
@@ -37,8 +49,13 @@ span {
   text-shadow: 1px 3px 3px #00000061;
 }
 
+header > div {
+  position: relative;
+}
+
 h1 {
   color: #ffffff;
+  bottom: 0.1875rem;
   position: relative;
   text-shadow: 0px 2px 4px #000000;
 }
@@ -46,7 +63,7 @@ h1 {
 nav {
   flex: 1;
   display: flex;
-  max-width: 6.5rem;
+  max-width: 10rem;
   min-width: 6.5rem;
   align-items: center;
   justify-content: space-between;
