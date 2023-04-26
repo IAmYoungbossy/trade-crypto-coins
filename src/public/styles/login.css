@@ -19,6 +19,13 @@ form > div {
   flex-direction: column;
 }
 
+form > div:last-of-type {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: right;
+  text-decoration: underline;
+}
+
 input,
 button,
 textarea {
@@ -39,7 +46,7 @@ label {
 
 button {
   font-weight: 600;
-  margin: 1.25rem 0;
+  margin: 0.25rem 0;
   color: #3d2db1cf;
   max-width: max-content;
   font-family: sans-serif;

@@ -5,6 +5,7 @@ const index_get = (
   res: Response,
   next: NextFunction
 ) => {
+  const STYLE = "login";
   if (res.locals.currentUser) {
     if (res.locals.currentUser.role === "user") {
       res.redirect(
@@ -14,7 +15,7 @@ const index_get = (
     if (res.locals.currentUser.role === "admin") {
       res.redirect("/admin");
     }
-  } else res.render("index");
+  } else res.render("index", { style: STYLE });
 };
 
 export default index_get;
