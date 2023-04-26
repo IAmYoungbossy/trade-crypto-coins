@@ -1,0 +1,53 @@
+main > p {
+  font-weight: 600;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #0e01b0bf;
+  display: inline-block;
+  text-transform: capitalize;
+  text-shadow: 1px 3px 5px #00000061;
+}
+
+form {
+  width: 100%;
+  max-width: 25rem;
+}
+
+form > div {
+  display: flex;
+  margin-top: 1rem;
+  flex-direction: column;
+}
+
+input,
+button,
+textarea {
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 0.3125rem;
+  border: 1px solid #0000ffa8;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3d2db1cf;
+  margin-bottom: 0.5rem;
+  font-family: sans-serif;
+  text-shadow: 3px 3px 6px #6900cb70;
+}
+
+button {
+  font-weight: 600;
+  margin: 1.25rem 0;
+  color: #3d2db1cf;
+  max-width: max-content;
+  font-family: sans-serif;
+  border-color: #5cbbba;
+  border: 1px solid blue;
+  border-radius: 0.3125rem;
+  background-color: #fff;
+  padding: 0.425rem 1.25rem;
+  box-shadow: 4px 4px 6px #0000003b;
+  text-shadow: 3px 3px 6px #6900cb70;
+}
