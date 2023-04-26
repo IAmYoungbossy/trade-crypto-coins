@@ -9,50 +9,57 @@ block content
         if pending.length === 0
             p No pending pending found
         else
-            table
-                thead
-                    tr
-                        th Transaction ID
-                        th Amount
-                        th Wallet Address
-                        th Payment Screenshot
-                        th Status
-                tbody
-                    each transaction in pending
+            #table_container
+                table
+                    thead
                         tr
-                            td= transaction._id
-                            td #{transaction.amount}
-                            td= transaction.walletAddress
-                            td
-                                img(
-                                    width="60px"
-                                    href="Payment Screenshot"
-                                    src=`/images/${transaction.paymentScreenshot}` 
-                                )
-                            td= transaction.status
+                            th S/N
+                            th Name
+                            th Amount
+                            th Wallet Address
+                            //- th Payment Screenshot
+                            th Status
+                            th Screenshot
+                    tbody
+                        each transaction in pending
+                            - var counter = 1
+                            tr
+                                td #{counter}
+                                td #{currentUser.first_name} #{currentUser.last_name}
+                                td #{transaction.amount}
+                                td= transaction.walletAddress
+                                //- td
+                                //-     img(
+                                //-         width="60px"
+                                //-         href="Payment Screenshot"
+                                //-         src=`/images/${transaction.paymentScreenshot}` 
+                                //-     )
+                                td= transaction.status
+                                td #[a("/") View Details]
+                                - counter++
 
-        h2 Completed transactions
-        if completed.length === 0
-            p No completed transaction yet.
-        else
-            table
-                thead
-                    tr
-                        th Transaction ID
-                        th Amount
-                        th Wallet Address
-                        th Payment Screenshot
-                        th Status
-                tbody
-                    each transaction in completed
+            h2 Completed transactions
+            if completed.length === 0
+                p No completed transaction yet.
+            else
+                table
+                    thead
                         tr
-                            td= transaction._id
-                            td #{transaction.amount}
-                            td= transaction.walletAddress
-                            td
-                                img(
-                                    width="25px"
-                                    href="Payment Screenshot"
-                                    src=`/images/${transaction.paymentScreenshot}` 
-                                )
-                            td= transaction.status
+                            th Transaction ID
+                            th Amount
+                            th Wallet Address
+                            th Payment Screenshot
+                            th Status
+                    tbody
+                        each transaction in completed
+                            tr
+                                td= transaction._id
+                                td #{transaction.amount}
+                                td= transaction.walletAddress
+                                //- td
+                                //-     img(
+                                //-         width="25px"
+                                //-         href="Payment Screenshot"
+                                //-         src=`/images/${transaction.paymentScreenshot}` 
+                                //-     )
+                                td= transaction.status

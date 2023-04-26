@@ -12,11 +12,14 @@ const index_get = (req: Request, res: Response) => {
     if (res.locals.currentUser.role === "admin") {
       res.redirect("/admin");
     }
-  } else
+  } else {
+    const TITLE = "Snappy Exchange";
     res.render("index", {
       style: STYLE,
+      title: TITLE,
       login_sub_style: SUB_STYLE,
     });
+  }
 };
 
 export default index_get;

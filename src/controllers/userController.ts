@@ -6,6 +6,7 @@ const user_get = async (
   res: Response,
   next: NextFunction
 ) => {
+  const TABLE_STYLE = "table";
   if (!res.locals.currentUser) res.redirect("/");
   else {
     const userId = res.locals.currentUser._id;
@@ -20,8 +21,13 @@ const user_get = async (
         status: { $in: ["approved", "cancelled"] },
       }),
     ]);
-
-    res.render("user", { pending, completed });
+    const title = `Dashboard | ${res.locals.currentUser.first_name}`;
+    res.render("user", {
+      title,
+      pending,
+      completed,
+      tableStyle: TABLE_STYLE,
+    });
   }
 };
 

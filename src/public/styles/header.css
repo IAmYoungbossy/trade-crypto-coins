@@ -1,8 +1,8 @@
 /* Header Styles */
 header {
   width: 100%;
-  color: wheat;
   line-height: 1;
+  color: #c6cbff;
   padding: 1.25rem 3rem;
   background-color: #263d54;
   box-shadow: 0px 2px 11px 0px #00000045;
@@ -10,8 +10,8 @@ header {
 
 header a {
   all: unset;
-  color: wheat;
   cursor: pointer;
+  color: #c6cbff;
   font-family: sans-serif;
 }
 

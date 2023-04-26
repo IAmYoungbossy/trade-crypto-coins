@@ -1,0 +1,81 @@
+#table_container {
+  width: 100%;
+  margin: auto;
+  overflow-x: auto;
+  max-width: 900px;
+  font-family: sans-serif;
+  box-shadow: 0px 2px 11px 0px #00000045;
+}
+
+main table {
+  width: 100%;
+  border-spacing: 0;
+  font-size: 0.95rem;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 0.625rem;
+}
+
+table tr {
+  background-color: #fefefe4d;
+}
+
+table th {
+  color: #c6cbff;
+  font-family: monospace;
+  background-color: #083c71;
+}
+
+table tr:nth-child(even) {
+  background-color: #596d482e;
+}
+
+table tr > td:last-child {
+  position: relative;
+}
+
+table tr > td:last-child > div button {
+  border: none;
+  cursor: pointer;
+  padding: 1px 6px;
+  border-radius: 5px;
+  outline: 1px solid;
+  background-color: transparent;
+}
+
+table tr > td:last-child > div > button:first-child {
+  outline-color: red;
+}
+
+table tr > td:last-child > div > button:first-child:hover {
+  outline: #ff000085;
+  color: rgb(255, 255, 255);
+  background-color: #ff000085;
+}
+
+table tr > td:last-child > div > button:last-child {
+  outline-color: blue;
+}
+
+table tr > td:last-child > div > button:last-child:hover {
+  outline: #6767d3;
+  color: rgb(255, 255, 255);
+  background-color: #6767d3;
+}
+
+table tr > td:last-child > div {
+  top: 6px;
+  gap: 8px;
+  left: 0px;
+  right: 1px;
+  width: 100%;
+  display: flex;
+  padding-left: 10px;
+  position: absolute;
+}
