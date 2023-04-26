@@ -1,0 +1,56 @@
+/* Header Styles */
+header {
+  width: 100%;
+  background-color: #fff;
+  padding: 1.25rem 1.25rem;
+  box-shadow: 0px 2px 11px 0px #00000045;
+}
+
+header a {
+  cursor: pointer;
+  color: #0025cd;
+  font-family: sans-serif;
+}
+
+header a:hover {
+  color: red;
+}
+
+header > div {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+span {
+  color: blue;
+  width: min-content;
+  margin: 0 0.3125rem;
+  display: inline-block;
+  text-shadow: 1px 3px 3px #00000061;
+}
+
+h1 {
+  color: #e2e5f4;
+  text-shadow: 3px 1px 5px #000000;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  max-width: 8.5rem;
+  min-width: 8.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 510px) {
+  header > div {
+    column-gap: 1.3rem;
+    justify-content: center;
+  }
+}
