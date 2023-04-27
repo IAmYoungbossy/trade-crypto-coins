@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node ./dist/bin/www.js",
+    "postbuild": "cp -r src/public dist",
     "build": "rm -rf /dist && tsc -p . && node minify.js",
     "dev": "nodemon ./src/bin/www.ts -e ts,json,pug,css",
     "serverstart": "SET DEBUG=express-locallibrary-tutorial:* & npm run dev"
