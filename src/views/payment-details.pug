@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    main
+        h2.title Payment Details
+        .section
+            .user_card 
+                .img_div
+                    img(
+                        width="100%"
+                        href="Payment Screenshot"
+                        src=`/images/${details.paymentScreenshot}`
+                    )
+                    .card_index S/N: #{index + 1}
+                .details 
+                    .user_details
+                        p Coin: #{details.crypto}
+                        p Amount: #{details.amount}
+                        p Status: #{details.status} 
