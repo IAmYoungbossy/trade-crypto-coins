@@ -1,10 +1,14 @@
 import path from "path";
+import helmet from "helmet";
+import dotenv from "dotenv";
 import multer from "multer";
 import logger from "morgan";
 import express from "express";
 import passport from "passport";
+import compression from "compression";
 import session from "express-session";
 import cookieParser from "cookie-parser";
+import RateLimit from "express-rate-limit";
 
 import userRoute from "./routes/users";
 import errorHandler, {
@@ -18,6 +22,14 @@ import LocalStrategy from "./middlewares/localStrategy";
 import setCurrentUserObjToLocal from "./helpers/helpers";
 import deserializeUserObj from "./middlewares/deserialize";
 import serializeUserForSession from "./middlewares/serialize";
+
+dotenv.config();
+process.env.NODE_ENV = "production";
+
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 20,
+});
 
 // Initialize express app
 const app = express();
@@ -55,6 +67,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Middleware
+app.use(limiter);
+app.use(helmet());
+app.use(compression());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(cookieParser());
