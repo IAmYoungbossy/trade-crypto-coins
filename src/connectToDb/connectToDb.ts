@@ -27,7 +27,9 @@ export default async function conectToDb({
 }: IConnectToDb) {
   try {
     // Connects to MongoDB db
-    await mongoose.connect(mongoDB);
+    await mongoose.connect(
+      "mongodb://mongo:FI6Gkgk4Gi1x3JW2f7Ks@containers-us-west-129.railway.app:7890"
+    );
 
     // Listen on provided port, on all network interfaces.
     server.listen(port, () =>
