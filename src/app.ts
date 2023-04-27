@@ -3,7 +3,6 @@ import multer from "multer";
 import logger from "morgan";
 import express from "express";
 import passport from "passport";
-import dotenv from "dotenv";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 
@@ -19,8 +18,6 @@ import LocalStrategy from "./middlewares/localStrategy";
 import setCurrentUserObjToLocal from "./helpers/helpers";
 import deserializeUserObj from "./middlewares/deserialize";
 import serializeUserForSession from "./middlewares/serialize";
-
-dotenv.config();
 
 // Initialize express app
 const app = express();
