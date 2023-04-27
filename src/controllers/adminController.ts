@@ -22,7 +22,7 @@ export const admin_get = asyncHandler(
       pending,
       approved,
       cancelled,
-      style: "table",
+      style: "admin",
     });
   }
 );

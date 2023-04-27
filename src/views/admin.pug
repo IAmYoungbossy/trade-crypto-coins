@@ -2,8 +2,8 @@ extends layout
 
 block content
     main
+        h2.title Pending transactions
         .section
-            h2.title Pending transactions
             if pending.length === 0
                 p No pending transaction
             else
@@ -33,44 +33,45 @@ block content
                                     action=`/admin/cancel-transaction/${transaction._id}`
                                 )
                                     button(type="submit") Cancel
+
+        h2.title Pending transactions
         .section
-            h2.title Approved transactions
-            if pending.length === 0
+            if approved.length === 0
                 p No approved transaction
             else
                 each transaction, index in approved
                     .user_card 
                         .img_div
                             img(
-                                width="120px"
+                                width="100%"
                                 href="Payment Screenshot"
                                 src=`/images/${transaction.paymentScreenshot}`
                             )
-                            .card_index #{index + 1}
                         .details 
                             .user_details
-                                p #{transaction.crypto}
-                                p #{transaction.amount}
-                                p #{transaction.status}
-                                p #{transaction.user.first_name} #{transaction.user.last_name} 
+                                p Coin: #{transaction.crypto}
+                                p Amount: #{transaction.amount}
+                                p Status: #{transaction.status}
+                                p Name: #{transaction.user.first_name} #{transaction.user.last_name} 
 
+
+        h2.title Cancelled transactions
         .section
-            h2.title Cancelled transactions
-            if pending.length === 0
+            if cancelled.length === 0
                 p No cancelled transaction
             else
                 each transaction, index in cancelled
                     .user_card 
                         .img_div
                             img(
-                                width="120px"
+                                width="100%"
                                 href="Payment Screenshot"
                                 src=`/images/${transaction.paymentScreenshot}`
                             )
-                            .card_index #{index + 1}
+                            .card_index S/N: #{index + 1}
                         .details 
                             .user_details
-                                p #{transaction.crypto}
-                                p #{transaction.amount}
-                                p #{transaction.status}
-                                p #{transaction.user.first_name} #{transaction.user.last_name} 
+                                p Coin: #{transaction.crypto}
+                                p Amount: #{transaction.amount}
+                                p Status: #{transaction.status}
+                                p Name: #{transaction.user.first_name} #{transaction.user.last_name} 
