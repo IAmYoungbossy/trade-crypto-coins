@@ -58,7 +58,7 @@ block content
                             th Status
                             th Screenshot
                     tbody
-                        each transaction in completed
+                        each transaction, index in completed
                             tr
                                 td #{index + 1}
                                 td #{transaction.crypto}

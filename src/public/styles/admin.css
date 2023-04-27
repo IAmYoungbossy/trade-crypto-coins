@@ -38,3 +38,7 @@ h2.title {
   color: #00096a;
   margin-bottom: 10px;
 }
+
+main > p {
+  margin-bottom: 15px;
+}

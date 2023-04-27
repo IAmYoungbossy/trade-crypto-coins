@@ -2,6 +2,7 @@ extends layout
 
 block content
     main
+        p Welcome to the admin dashboard.
         h2.title Pending transactions
         .section
             if pending.length === 0
@@ -68,7 +69,6 @@ block content
                                 href="Payment Screenshot"
                                 src=`/images/${transaction.paymentScreenshot}`
                             )
-                            .card_index S/N: #{index + 1}
                         .details 
                             .user_details
                                 p Coin: #{transaction.crypto}

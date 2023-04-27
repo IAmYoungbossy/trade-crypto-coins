@@ -61,11 +61,10 @@ h1 {
 }
 
 nav {
-  flex: 1;
   display: flex;
   max-width: 10rem;
-  min-width: 6.5rem;
   align-items: center;
+  min-width: fit-content;
   justify-content: space-between;
 }
 

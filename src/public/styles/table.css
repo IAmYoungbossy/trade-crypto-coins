@@ -48,6 +48,12 @@ td a,
   font-size: 1.3rem;
 }
 
+td a:hover,
+.buy_coin:hover {
+  color: #e4cdec;
+  background-color: #551a8b;
+}
+
 table tr {
   background-color: #fefefe4d;
 }
