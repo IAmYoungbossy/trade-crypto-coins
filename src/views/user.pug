@@ -33,8 +33,6 @@ block content
                                 th S/N
                                 th Coin
                                 th Amount
-                                //- th Wallet Address
-                                //- th Payment Screenshot
                                 th Status
                                 th Screenshot
                         tbody
@@ -43,15 +41,8 @@ block content
                                     td #{index + 1}
                                     td #{transaction.crypto}
                                     td #{transaction.amount}
-                                    //- td= transaction.walletAddress
-                                    //- td
-                                    //-   img(
-                                    //-     width="60px"
-                                    //-     href="Payment Screenshot"
-                                    //-     src=`/images/${transaction.paymentScreenshot}` 
-                                    //-   )
                                     td= transaction.status
-                                    td #[a(href="/") View Details]
+                                    td #[a(href=`/user/${transaction._id}/details`) View Details]
 
         .section
             h2.title Completed transactions
@@ -61,21 +52,16 @@ block content
                 table
                     thead
                         tr
-                            th Transaction ID
+                            th S/N
+                            th Coin
                             th Amount
-                            th Wallet Address
-                            th Payment Screenshot
                             th Status
+                            th Screenshot
                     tbody
                         each transaction in completed
                             tr
-                                td= transaction._id
+                                td #{index + 1}
+                                td #{transaction.crypto}
                                 td #{transaction.amount}
-                                td= transaction.walletAddress
-                                //- td
-                                //-   img(
-                                //-     width="25px"
-                                //-     href="Payment Screenshot"
-                                //-     src=`/images/${transaction.paymentScreenshot}` 
-                                //-   )
                                 td= transaction.status
+                                td #[a(href=`/user/${transaction._id}/details`) View Details]

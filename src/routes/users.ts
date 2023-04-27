@@ -32,4 +32,19 @@ userRoute.post("/:id/buy", async (req, res) => {
   }
 });
 
+userRoute.get("/:id/details", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const transaction = await Transaction.findById(id);
+    console.log(transaction);
+    if (!transaction) res.redirect(`/user/${id}`);
+    res.render("payment-details", {
+      transaction,
+      style: "admin",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 export default userRoute;
