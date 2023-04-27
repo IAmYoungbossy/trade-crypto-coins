@@ -24,7 +24,6 @@ import deserializeUserObj from "./middlewares/deserialize";
 import serializeUserForSession from "./middlewares/serialize";
 
 dotenv.config();
-process.env.NODE_ENV = "production";
 
 const limiter = RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
@@ -60,6 +59,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+
 passport.use(LocalStrategy);
 passport.serializeUser(serializeUserForSession);
 passport.deserializeUser(deserializeUserObj);
