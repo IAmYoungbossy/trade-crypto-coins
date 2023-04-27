@@ -1,8 +1,8 @@
-main > p {
+main > p:first-of-type {
   font-weight: 600;
-  margin-top: 1rem;
   font-size: 1.4rem;
   color: #0e01b0bf;
+  margin: 1rem 0 0.5rem;
   display: inline-block;
   text-transform: capitalize;
   text-shadow: 1px 3px 5px #00000061;
