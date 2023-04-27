@@ -62,7 +62,7 @@ function onError(error: CustomError) {
 
 const dev_db_url = "mongodb://127.0.0.1:27017/crypto-trade";
 
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+export const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 // Event listener for HTTP server "listening" event.
 function onListening() {

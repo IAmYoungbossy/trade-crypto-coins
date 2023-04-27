@@ -1,12 +1,12 @@
 import http from "http";
 import mongoose from "mongoose";
-import { CustomError } from "../bin/www";
+import { CustomError, mongoDB } from "../bin/www";
 
 // This is set to false to enable use of virtual properties
 mongoose.set("strictQuery", false);
 
 // Define the database URL to connect to.
-const mongoDB = "mongodb://127.0.0.1:27017/crypto-trade";
+// const mongoDB = "mongodb://127.0.0.1:27017/crypto-trade";
 
 interface IConnectToDb {
   onListening: () => void;
