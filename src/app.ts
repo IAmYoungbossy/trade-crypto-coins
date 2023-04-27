@@ -6,7 +6,7 @@ import logger from "morgan";
 import express from "express";
 import passport from "passport";
 import compression from "compression";
-import session from "cookie-session";
+import session from "express-session";
 import cookieParser from "cookie-parser";
 import RateLimit from "express-rate-limit";
 
@@ -55,8 +55,8 @@ app.set("view engine", "pug");
 app.use(
   session({
     secret: "cats",
-    // resave: false,
-    // saveUninitialized: true,
+    resave: false,
+    saveUninitialized: true,
   })
 );
 
