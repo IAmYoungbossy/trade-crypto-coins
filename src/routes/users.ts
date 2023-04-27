@@ -8,18 +8,19 @@ const userRoute = express.Router();
 userRoute.get("/:id", user_get);
 
 userRoute.get("/:id/buy", (req, res) => {
+  const STYLE = "login";
   const id = req.params.id;
   if (!res.locals.currentUser) res.redirect("/");
-  res.render("buy", { id });
+  res.render("buy", { id, style: STYLE });
 });
 
 userRoute.post("/:id/buy", async (req, res) => {
   const id = req.params.id;
-  const { amount, walletAddress } = req.body;
+  const { amount, walletAddress, crypto } = req.body;
   try {
-    console.log(req.file);
     const transaction = new Transaction({
       amount,
+      crypto,
       user: id,
       walletAddress,
       paymentScreenshot: req.file?.filename,

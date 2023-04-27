@@ -24,14 +24,14 @@ block content
         .section
             h2.title Pending transactions
             if pending.length === 0
-                p No pending pending found
+                p No pending transaction
             else
                 #table_container
                     table
                         thead
                             tr
                                 th S/N
-                                th Name
+                                th Coin
                                 th Amount
                                 //- th Wallet Address
                                 //- th Payment Screenshot
@@ -41,15 +41,15 @@ block content
                             each transaction, index in pending
                                 tr
                                     td #{index + 1}
-                                    td #{currentUser.first_name} #{currentUser.last_name}
+                                    td #{transaction.crypto}
                                     td #{transaction.amount}
                                     //- td= transaction.walletAddress
                                     //- td
-                                    //-     img(
-                                    //-         width="60px"
-                                    //-         href="Payment Screenshot"
-                                    //-         src=`/images/${transaction.paymentScreenshot}` 
-                                    //-     )
+                                    //-   img(
+                                    //-     width="60px"
+                                    //-     href="Payment Screenshot"
+                                    //-     src=`/images/${transaction.paymentScreenshot}` 
+                                    //-   )
                                     td= transaction.status
                                     td #[a(href="/") View Details]
 
@@ -73,9 +73,9 @@ block content
                                 td #{transaction.amount}
                                 td= transaction.walletAddress
                                 //- td
-                                //-     img(
-                                //-         width="25px"
-                                //-         href="Payment Screenshot"
-                                //-         src=`/images/${transaction.paymentScreenshot}` 
-                                //-     )
+                                //-   img(
+                                //-     width="25px"
+                                //-     href="Payment Screenshot"
+                                //-     src=`/images/${transaction.paymentScreenshot}` 
+                                //-   )
                                 td= transaction.status

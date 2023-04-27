@@ -1,91 +1,76 @@
 extends layout
 
 block content
-    h1 Hello, admin #{currentUser.first_name}
-    br
-    a(href="/log-out") LOG OUT
     main
-        h1 Admin Dashboard
-        h2 Pending Transactions
-        if pending.length === 0
-            p No pending transaction.
-        else
-            table
-                tr
-                    th Transaction ID
-                    th Amount
-                    th Wallet Address
-                    th Payment Screenshot
-                    th User
-                    th Action
-                each transaction in pending
-                    tr
-                        td= transaction._id
-                        td= transaction.amount
-                        td= transaction.walletAddress
-                        td= transaction.user
-                        td 
+        .section
+            h2.title Pending transactions
+            if pending.length === 0
+                p No pending transaction
+            else
+                each transaction, index in pending
+                    .user_card 
+                        .img_div
                             img(
-                                width="60px"
+                                width="100%"
                                 href="Payment Screenshot"
                                 src=`/images/${transaction.paymentScreenshot}`
                             )
-                        td
-                            form(
-                                method="post"
-                                action=`/admin/approve-transaction/${transaction._id}`
+                            .card_index S/N: #{index + 1}
+                        .details 
+                            .user_details
+                                p Coin: #{transaction.crypto}
+                                p Amount: #{transaction.amount}
+                                p Status: #{transaction.status}
+                                p Name: #{transaction.user.first_name} #{transaction.user.last_name} 
+                            .admin_action 
+                                form(
+                                    method="post"
+                                    action=`/admin/approve-transaction/${transaction._id}`
+                                )
+                                    button(type="submit") Approve
+                                form(
+                                    method="post"
+                                    action=`/admin/cancel-transaction/${transaction._id}`
+                                )
+                                    button(type="submit") Cancel
+        .section
+            h2.title Approved transactions
+            if pending.length === 0
+                p No approved transaction
+            else
+                each transaction, index in approved
+                    .user_card 
+                        .img_div
+                            img(
+                                width="120px"
+                                href="Payment Screenshot"
+                                src=`/images/${transaction.paymentScreenshot}`
                             )
-                                button(type="submit") Approve
-                            form(
-                                method="post"
-                                action=`/admin/cancel-transaction/${transaction._id}`
-                            )
-                                button(type="submit") Cancel
+                            .card_index #{index + 1}
+                        .details 
+                            .user_details
+                                p #{transaction.crypto}
+                                p #{transaction.amount}
+                                p #{transaction.status}
+                                p #{transaction.user.first_name} #{transaction.user.last_name} 
 
-        h2 Approved Transactions
-        if approved.length === 0
-            p No approved transaction.
-        else
-            table
-                tr
-                    th Transaction ID
-                    th Amount
-                    th Wallet Address
-                    th Payment Screenshot
-                    th User
-                each transaction in approved
-                    tr
-                        td= transaction._id
-                        td= transaction.amount
-                        td= transaction.walletAddress
-                        td= transaction.user
-                        td 
+        .section
+            h2.title Cancelled transactions
+            if pending.length === 0
+                p No cancelled transaction
+            else
+                each transaction, index in cancelled
+                    .user_card 
+                        .img_div
                             img(
-                                width="60px"
+                                width="120px"
                                 href="Payment Screenshot"
                                 src=`/images/${transaction.paymentScreenshot}`
                             )
-
-        h2 Cancelled Transactions
-        if cancelled.length === 0
-            p No cancelled transaction.
-        else
-            table
-                tr
-                    th Transaction ID
-                    th Amount
-                    th Wallet Address
-                    th Payment Screenshot
-                    th User
-                each transaction in cancelled
-                    tr
-                        td= transaction._id
-                        td= transaction.amount
-                        td= transaction.walletAddress
-                        td= transaction.user
-                        td 
-                            img(
-                                width="60px"
-                                href="Payment Screenshot"
-                                src=`/images/${transaction.paymentScreenshot}`
-                            ) 
+                            .card_index #{index + 1}
+                        .details 
+                            .user_details
+                                p #{transaction.crypto}
+                                p #{transaction.amount}
+                                p #{transaction.status}
+                                p #{transaction.user.first_name} #{transaction.user.last_name} 

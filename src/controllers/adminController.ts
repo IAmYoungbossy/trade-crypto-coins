@@ -5,17 +5,24 @@ import { Response, Request, NextFunction } from "express";
 export const admin_get = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const [pending, approved, cancelled] = await Promise.all([
-      await Transaction.find({ status: "pending" }),
-      await Transaction.find({ status: "approved" }),
-      await Transaction.find({ status: "cancelled" }),
+      await Transaction.find({ status: "pending" }).populate(
+        "user"
+      ),
+      await Transaction.find({ status: "approved" }).populate(
+        "user"
+      ),
+      await Transaction.find({ status: "cancelled" }).populate(
+        "user"
+      ),
     ]);
-
+    console.log(pending);
     if (!res.locals.currentUser) res.redirect("/");
 
     res.render("admin", {
       pending,
       approved,
       cancelled,
+      style: "table",
     });
   }
 );

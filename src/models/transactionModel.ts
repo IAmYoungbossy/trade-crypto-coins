@@ -15,6 +15,11 @@ const TransactionSchema = new Schema(
     amount: { type: Number, required: true },
     walletAddress: { type: String, required: true },
     paymentScreenshot: { type: String, required: true },
+    crypto: {
+      type: String,
+      enum: ["BTC", "ETH"],
+      required: true,
+    },
   },
   { timestamps: true }
 );
