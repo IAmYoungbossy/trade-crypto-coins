@@ -1,12 +1,16 @@
 import http from "http";
 import mongoose from "mongoose";
-import { CustomError, mongoDB } from "../bin/www";
+import { CustomError } from "../bin/www";
 
 // This is set to false to enable use of virtual properties
 mongoose.set("strictQuery", false);
 
 // Define the database URL to connect to.
 // const mongoDB = "mongodb://127.0.0.1:27017/crypto-trade";
+
+const dev_db_url = "mongodb://127.0.0.1:27017/crypto-trade";
+
+export const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 interface IConnectToDb {
   onListening: () => void;
@@ -27,9 +31,7 @@ export default async function conectToDb({
 }: IConnectToDb) {
   try {
     // Connects to MongoDB db
-    await mongoose.connect(
-      "mongodb://mongo:FI6Gkgk4Gi1x3JW2f7Ks@containers-us-west-129.railway.app:7890"
-    );
+    await mongoose.connect(dev_db_url);
 
     // Listen on provided port, on all network interfaces.
     server.listen(port, () =>
