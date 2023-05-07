@@ -1,50 +1,23 @@
 import express from "express";
-import user_get from "../controllers/userController";
-import Transaction from "../models/transactionModel";
+import user_get, {
+  user_buy_get,
+  user_buy_post,
+  user_details_get,
+} from "../controllers/userController";
 
+// App instance
 const userRoute = express.Router();
 
-/* GET user account. */
+// GET user account.
 userRoute.get("/:id", user_get);
 
-userRoute.get("/:id/buy", (req, res) => {
-  const STYLE = "login";
-  const id = req.params.id;
-  if (!res.locals.currentUser) res.redirect("/");
-  res.render("buy", { id, style: STYLE });
-});
+// Get user buy page
+userRoute.get("/:id/buy", user_buy_get);
 
-userRoute.post("/:id/buy", async (req, res) => {
-  const id = req.params.id;
-  const { amount, walletAddress, crypto } = req.body;
-  try {
-    const transaction = new Transaction({
-      amount,
-      crypto,
-      user: id,
-      walletAddress,
-      paymentScreenshot: req.file?.filename,
-    });
-    await transaction.save();
-    res.redirect(`/user/${id}`);
-  } catch (err) {
-    console.log(err);
-  }
-});
+// Post user buy page
+userRoute.post("/:id/buy", user_buy_post);
 
-userRoute.get("/:id/details", async (req, res) => {
-  const id = req.params.id;
-  try {
-    const transaction = await Transaction.findById(id);
-    console.log(transaction);
-    if (!transaction) res.redirect(`/user/${id}`);
-    res.render("payment-details", {
-      transaction,
-      style: "admin",
-    });
-  } catch (err) {
-    console.log(err);
-  }
-});
+// Get user details page
+userRoute.get("/:id/details", user_details_get);
 
 export default userRoute;

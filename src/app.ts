@@ -6,10 +6,10 @@ import passport from "passport";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 
-import userRoute from "./routes/users";
 import errorHandler, {
   catchErrorAndForward,
 } from "./controllers/errorController";
+import userRoute from "./routes/users";
 import adminRouter from "./routes/admin";
 import indexRouter from "./routes/index";
 import logOutRoute from "./routes/log-out";
