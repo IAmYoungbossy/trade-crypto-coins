@@ -3,6 +3,7 @@ import User from "../models/userModel";
 import asyncHandler from "express-async-handler";
 import { Response, Request, NextFunction } from "express";
 
+// Renders sign up page
 export const sign_up_get = (req: Request, res: Response) => {
   const STYLE = "login";
   const SUB_STYLE = "login_sub_style";
@@ -12,6 +13,7 @@ export const sign_up_get = (req: Request, res: Response) => {
   });
 };
 
+// Sends details of sign up form to db
 export const sign_up_post = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const {

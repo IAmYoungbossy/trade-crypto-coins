@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
+// Logs out any signed in user
 const log_out_get = (
   req: Request,
   res: Response,

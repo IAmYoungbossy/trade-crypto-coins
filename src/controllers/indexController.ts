@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 
+// GET the home page which is login page
 const index_get = (req: Request, res: Response) => {
   const STYLE = "login";
   const SUB_STYLE = "login_sub_style";

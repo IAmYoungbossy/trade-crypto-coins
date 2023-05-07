@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import Transaction from "../models/transactionModel";
 import { Response, Request, NextFunction } from "express";
 
+// Get admin dashboard
 export const admin_get = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const [pending, approved, cancelled] = await Promise.all([
@@ -15,7 +16,7 @@ export const admin_get = asyncHandler(
         "user"
       ),
     ]);
-    console.log(pending);
+
     if (!res.locals.currentUser) res.redirect("/");
 
     res.render("admin", {
@@ -27,6 +28,7 @@ export const admin_get = asyncHandler(
   }
 );
 
+// POST approved transaction and render admin dashboard
 export const admin_approved_post = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const transaction = await Transaction.findById(
@@ -42,6 +44,7 @@ export const admin_approved_post = asyncHandler(
   }
 );
 
+// POST cancelled transaction and render admin dashboard
 export const admin_cancelled_post = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const transaction = await Transaction.findById(
