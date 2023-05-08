@@ -4,9 +4,10 @@ import { authenticateUser } from "../controllers/authenticateUser";
 
 const loginRouter = Router();
 
-// loginRouter.get("/", login_get);
+// GET login page
+loginRouter.get("/", login_get);
 
-// Gets user account or redirect to home
+// POST authenticate then redirect to user account
 loginRouter.post("/", authenticateUser);
 
 export default loginRouter;

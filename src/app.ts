@@ -72,7 +72,7 @@ app.use(upload.single("paymentScreenshot"));
 app.use("/", indexRouter);
 app.use("/user", userRoute);
 app.use("/admin", adminRouter);
-app.get("/login", login_get);
+app.use("/login", loginRouter);
 app.use("/log-out", logOutRoute);
 app.use("/sign-up", signUpRoute);
 
