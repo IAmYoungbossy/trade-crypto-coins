@@ -10,6 +10,7 @@ import errorHandler, {
   catchErrorAndForward,
 } from "./controllers/errorController";
 import userRoute from "./routes/users";
+import loginRouter from "./routes/login";
 import adminRouter from "./routes/admin";
 import indexRouter from "./routes/index";
 import logOutRoute from "./routes/log-out";
@@ -18,6 +19,7 @@ import LocalStrategy from "./middlewares/localStrategy";
 import setCurrentUserObjToLocal from "./helpers/helpers";
 import deserializeUserObj from "./middlewares/deserialize";
 import serializeUserForSession from "./middlewares/serialize";
+import login_get from "./controllers/loginController";
 
 // Initialize express app
 const app = express();
@@ -70,6 +72,7 @@ app.use(upload.single("paymentScreenshot"));
 app.use("/", indexRouter);
 app.use("/user", userRoute);
 app.use("/admin", adminRouter);
+app.get("/login", login_get);
 app.use("/log-out", logOutRoute);
 app.use("/sign-up", signUpRoute);
 

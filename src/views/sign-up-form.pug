@@ -50,13 +50,13 @@ block content
                     name="password"
                     type="password"
                     placeholder="Password"
-                    value=(underfined===user ? "" : user.password)
+                    value=(underfined===user ? "" : `${user.password}`)
                 )
 
             if error 
                 ul 
                     for err in error 
-                        li!= error.msg
+                        li #{err.msg}
 
             div 
                 a(href="/") Login

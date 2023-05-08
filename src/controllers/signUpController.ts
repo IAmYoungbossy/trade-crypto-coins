@@ -1,51 +1,55 @@
 import bcrypt from "bcryptjs";
 import User from "../models/userModel";
 import asyncHandler from "express-async-handler";
+import { authenticateUser } from "./authenticateUser";
 import { Response, Request, NextFunction } from "express";
 import { body, validationResult } from "express-validator";
 
 // Renders sign up page
 export const sign_up_get = (req: Request, res: Response) => {
-  const STYLE = "login";
-  const SUB_STYLE = "login_style";
   res.render("sign-up-form", {
-    style: STYLE,
-    login_style: SUB_STYLE,
+    style: "login",
+    login_sub_style: "login_sub_style",
   });
 };
 
 // Sends details of sign up form to db
 export const sign_up_post = [
-  body("email", "Must provide an email address.")
-    .trim()
-    .isLength({ min: 7 })
-    .withMessage("Must have at least 7 characters")
-    .escape(),
-  body("username", "Must provide a username.")
+  body("username")
     .trim()
     .isLength({ min: 3 })
-    .withMessage("Must have at least 3 characters")
+    .withMessage("Username must have at least 3 characters")
     .escape(),
-  body("password", "Must provide a password.")
+
+  body("first_name")
+    .trim()
+    .isLength({ min: 2 })
+    .withMessage("First Name must have at least 1 characters")
+    .escape(),
+
+  body("last_name")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("Last Name must have at least 1 characters")
+    .escape(),
+
+  body("email")
+    .trim()
+    .isLength({ min: 7 })
+    .withMessage("Email must have at least 7 characters")
+    .escape(),
+
+  body("password")
     .trim()
     .isLength({ min: 6 })
-    .withMessage("Must have at least 6 characters")
+    .withMessage("Password must have at least 6 characters")
     .escape(),
-  body("last_name", "Must provide your last name.")
-    .trim()
-    .isLength({ min: 1 })
-    .withMessage("Must have at least 1 characters")
-    .escape(),
-  body("first_name", "Must provide your last name.")
-    .trim()
-    .isLength({ min: 1 })
-    .withMessage("Must have at least 1 characters")
-    .escape(),
+
   body("phone_numner")
     .optional({ checkFalsy: true })
     .trim()
-    .isLength({ min: 7 })
-    .withMessage("Must have at least 7 characters")
+    .isLength({ min: 11 })
+    .withMessage("Phone Number must have at least 11 digits")
     .escape(),
 
   // Process request after validation and sanitization.
@@ -75,19 +79,15 @@ export const sign_up_post = [
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
-        // Dynamic stylesheet file names.
-        const STYLE = "login";
         const error = errors.array();
-        const STYLE2 = "login_style";
-
         const user = newUserInstance(password);
 
         // Options object to pass to view template.
         const options = {
           user,
           error,
-          style: STYLE,
-          login_style: STYLE2,
+          style: "login",
+          login_sub_style: "login_sub_style",
         };
 
         /** There are errors. Render the form again *
@@ -110,11 +110,12 @@ export const sign_up_post = [
             // Save the user to the database
             await user.save();
 
-            // Redirect to the homepage
-            res.redirect("/");
+            // Move to the next middleware
+            next();
           }
         );
       }
     }
   ),
+  authenticateUser,
 ];
