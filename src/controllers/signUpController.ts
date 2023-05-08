@@ -77,20 +77,23 @@ export const sign_up_post = [
       if (!errors.isEmpty()) {
         // Dynamic stylesheet file names.
         const STYLE = "login";
+        const error = errors.array();
         const STYLE2 = "login_style";
 
         const user = newUserInstance(password);
 
-        /********************************************
-         ** There are errors. Render the form again *
-         ** with sanitized values/error messages ****
-         ********************************************/
-        const u = { user, style: STYLE, login_style: STYLE2 };
-        res.render("sign-up-form", {
+        // Options object to pass to view template.
+        const options = {
           user,
+          error,
           style: STYLE,
-          login_style: SUB_STYLE,
-        });
+          login_style: STYLE2,
+        };
+
+        /** There are errors. Render the form again *
+         ** with sanitized values/error messages ****/
+        res.render("sign-up-form", options);
+
         return;
       } else {
         // Hash the password using bcrypt
