@@ -1,12 +1,8 @@
 import { Request, Response } from "express";
 
-// GET the home page which is login page
+// GET redirects to login page
 const index_get = (req: Request, res: Response) => {
-  res.render("index", {
-    style: "login",
-    title: "Snappy Exchange",
-    login_sub_style: "login_sub_style",
-  });
+  res.redirect("/login");
 };
 
 export default index_get;

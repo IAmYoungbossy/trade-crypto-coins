@@ -19,7 +19,6 @@ import LocalStrategy from "./middlewares/localStrategy";
 import setCurrentUserObjToLocal from "./helpers/helpers";
 import deserializeUserObj from "./middlewares/deserialize";
 import serializeUserForSession from "./middlewares/serialize";
-import login_get from "./controllers/loginController";
 
 // Initialize express app
 const app = express();
