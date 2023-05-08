@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 // GET the home page which is login page
 const index_get = (req: Request, res: Response) => {
   const STYLE = "login";
-  const SUB_STYLE = "login_sub_style";
+  const SUB_STYLE = "login_style";
   if (res.locals.currentUser) {
     if (res.locals.currentUser.role === "user") {
       res.redirect(
@@ -18,7 +18,7 @@ const index_get = (req: Request, res: Response) => {
     res.render("index", {
       style: STYLE,
       title: TITLE,
-      login_sub_style: SUB_STYLE,
+      login_style: SUB_STYLE,
     });
   }
 };
