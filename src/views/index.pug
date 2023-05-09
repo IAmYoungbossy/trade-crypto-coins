@@ -10,11 +10,28 @@ block content
     form(action="/login", method="POST")
       div
         label(for="username") Username
-        input(name="username", placeholder="username", type="text")
+        input(
+          type="text"
+          name="username"
+          placeholder="username"
+          value=(underfined===loginDetails ? "" : loginDetails.username)
+        )
 
       div
         label(for="password") Password
-        input(name="password", type="password")
+        input(
+          name="password" 
+          type="password"
+          placeholder="Password"
+          value=(underfined===loginDetails ? "" : `${loginDetails.password}`)
+        )
+
       div 
         a(href="/sign-up") Sign Up
+
+      if error 
+        ul 
+          for err in error 
+            li #{err.msg}
+
       button Log In

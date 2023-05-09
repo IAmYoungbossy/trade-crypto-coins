@@ -1,13 +1,15 @@
 import { Router } from "express";
-import login_get from "../controllers/loginController";
-import { authenticateUser } from "../controllers/authenticateUser";
+import login_get, {
+  login_post,
+} from "../controllers/loginController";
 
+// App instance
 const loginRouter = Router();
 
 // GET login page
 loginRouter.get("/", login_get);
 
-// POST authenticate then redirect to user account
-loginRouter.post("/", authenticateUser);
+// POST authenticate user
+loginRouter.post("/", login_post);
 
 export default loginRouter;
