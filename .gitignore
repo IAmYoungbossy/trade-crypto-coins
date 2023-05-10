@@ -2,4 +2,6 @@
 
 /dist
 
+/src/public/typescript/*.js
+
 .env

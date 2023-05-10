@@ -5,7 +5,7 @@ block content
         p.welcome Hello #{currentUser.first_name}, great to have you here.
         p.instruction Click the button below to buy your favourite cryptocurrency.
         br
-        a(href=`/user/${currentUser._id}/buy` class="buy_coin") Buy Coin
+        button(class="buy_button") Buy Coin
         .available_coin
             p Available coins
         .currency
@@ -65,3 +65,54 @@ block content
                                 td #{transaction.amount}
                                 td= transaction.status
                                 td #[a(href=`/user/${transaction._id}/details`) View Details]
+
+    .buy_form_container
+        form(
+            class="buy_form"
+            action="", method='post' 
+            enctype="multipart/form-data"
+        )
+            div
+                label(for='crypto') Select a coin:
+                select(
+                    name="crypto"
+                    value=(underfined===transaction ? "" : `${transaction.crypto}`)
+                )
+                    option(value="ETH") ETH
+                    option(value="BTC" selected) BTC
+
+            div
+                label(for='amount') Amount:
+                input(
+                    required
+                    name='amount'
+                    type='number' 
+                    value=(underfined===transaction ? "" : `${transaction.amount}`)
+                )
+
+            div
+                label(for='walletAddress') Wallet Address:
+                input(
+                    required
+                    type='text'
+                    name='walletAddress'
+                    value=(underfined===transaction ? "" : `${transaction.walletAddress}`)
+                )
+
+            div
+                label(for='paymentScreenshot') Payment Screenshot:
+                input(
+                    required
+                    type='file'
+                    accept="image/*"
+                    name='paymentScreenshot'
+                )
+
+            if error 
+                ul 
+                    for err in error 
+                        li #{err.msg}
+
+            button(type='submit') Submit
+
+    script(type="text/javascript" src="/typescript/user.js")

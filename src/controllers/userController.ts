@@ -6,7 +6,6 @@ import { body, validationResult } from "express-validator";
 // Renders user page
 const user_get = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const TABLE_STYLE = "table";
     if (!res.locals.currentUser) res.redirect("/");
     else {
       const userId = res.locals.currentUser._id;
@@ -26,7 +25,7 @@ const user_get = asyncHandler(
         title,
         pending,
         completed,
-        tableStyle: TABLE_STYLE,
+        tableStyle: "table",
       });
     }
   }
