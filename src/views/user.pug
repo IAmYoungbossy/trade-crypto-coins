@@ -75,71 +75,9 @@ block content
                                     ) View Details
 
         //- Modal pop up form view transaction details
-        .view_details_modal
-            .section
-                .user_card 
-                    .img_div
-                        img(
-                            width="100%"
-                            href="Payment Screenshot"
-                            class="view_details_image"
-                        )
-                    .details 
-                        .user_details
-                            p Coin: #[span(class="crypto_value")]
-                            p Amount: #[span(class="amount_value")]
-                            p Status: #[span(class="status_value")]
-                            p Wallet: #[span(class="wallet_value")]
+        include ./partials/view_details_modal.pug
 
     //- Modal pop up for buy form
-    .buy_form_container(class=errorForm ? "show" : "")
-        form(
-            method='post' 
-            class="buy_form"
-            enctype="multipart/form-data"
-            action=`/user/${currentUser._id}/buy`
-        )
-            div
-                label(for='crypto') Select a coin:
-                select(
-                    name="crypto"
-                    value=(underfined===transaction ? "" : `${transaction.crypto}`)
-                )
-                    option(value="ETH") ETH
-                    option(value="BTC" selected) BTC
-
-            div
-                label(for='amount') Amount:
-                input(
-                    required
-                    name='amount'
-                    type='number' 
-                    value=(underfined===transaction ? "" : `${transaction.amount}`)
-                )
-
-            div
-                label(for='walletAddress') Wallet Address:
-                input(
-                    required
-                    type='text'
-                    name='walletAddress'
-                    value=(underfined===transaction ? "" : `${transaction.walletAddress}`)
-                )
-
-            div
-                label(for='paymentScreenshot') Payment Screenshot:
-                input(
-                    required
-                    type='file'
-                    accept="image/*"
-                    name='paymentScreenshot'
-                )
-
-            if error 
-                ul 
-                    for err in error 
-                        li #{err.msg}
-
-            button(type='submit') Submit
+    include ./partials/buy_form_container.pug
 
     script(type="text/javascript" src="/typescript/user.js")
