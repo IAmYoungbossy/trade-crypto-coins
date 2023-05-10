@@ -8,27 +8,33 @@ main > p:first-of-type {
   text-shadow: 1px 3px 5px #00000061;
 }
 
+.buy_form_container form,
 form {
   width: 100%;
   max-width: 25rem;
 }
 
+.buy_form_container form > div,
 form > div {
   display: flex;
   margin-top: 1rem;
   flex-direction: column;
 }
-
 input,
 button,
 select,
-textarea {
+textarea,
+.buy_form_container form input,
+.buy_form_container form button,
+.buy_form_container form select,
+.buy_form_container form textarea {
   outline: none;
   padding: 0.5rem;
   border-radius: 0.3125rem;
   border: 1px solid #0000ffa8;
 }
 
+.buy_form_container form label,
 label {
   font-size: 1rem;
   font-weight: 600;
@@ -38,6 +44,7 @@ label {
   text-shadow: 3px 3px 6px #6900cb70;
 }
 
+.buy_form_container form button,
 button {
   font-weight: 600;
   margin: 1.25rem 0;

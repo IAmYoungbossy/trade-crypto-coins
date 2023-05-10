@@ -25,6 +25,8 @@ const user_get = asyncHandler(
         title,
         pending,
         completed,
+        style: "login",
+        errorForm: false,
         tableStyle: "table",
       });
     }
@@ -77,21 +79,43 @@ export const user_buy_post = [
     if (!errors.isEmpty()) {
       const error = errors.array();
 
+      const userId = res.locals.currentUser._id;
+
+      const [pending, completed] = await Promise.all([
+        Transaction.find({
+          user: userId,
+          status: "pending",
+        }),
+        Transaction.find({
+          user: userId,
+          status: { $in: ["approved", "cancelled"] },
+        }),
+      ]);
+      const title = `Dashboard | ${res.locals.currentUser.first_name}`;
+
+      res.locals.errorForm = true;
       // Options object to pass to view template.
       const options = {
         id,
+        title,
         error,
+        pending,
+        completed,
         transaction,
         style: "login",
+        errorForm: true,
+        tableStyle: "table",
       };
 
       /** There are errors. Render the form again *
        ** with sanitized values/error messages ****/
-      res.render("buy", options);
+      // res.render("buy", options);
+      res.render("user", options);
 
       return;
     } else {
       await transaction.save();
+      res.locals.errorForm = true;
       res.redirect(`/user/${id}`);
     }
   }),
