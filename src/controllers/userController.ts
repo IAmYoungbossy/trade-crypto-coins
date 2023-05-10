@@ -33,14 +33,6 @@ const user_get = asyncHandler(
   }
 );
 
-// Renders buy form page
-export const user_buy_get = (req: Request, res: Response) => {
-  const STYLE = "login";
-  const id = req.params.id;
-  if (!res.locals.currentUser) res.redirect("/");
-  res.render("buy", { id, style: STYLE });
-};
-
 // Sends buy form details to db and render user page
 export const user_buy_post = [
   body("crypto")
@@ -109,7 +101,6 @@ export const user_buy_post = [
 
       /** There are errors. Render the form again *
        ** with sanitized values/error messages ****/
-      // res.render("buy", options);
       res.render("user", options);
 
       return;
