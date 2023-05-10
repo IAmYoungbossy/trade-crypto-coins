@@ -42,7 +42,11 @@ block content
                                     td #{transaction.crypto}
                                     td #{transaction.amount}
                                     td= transaction.status
-                                    td #[a(href=`/user/${transaction._id}/details`) View Details]
+                                    td 
+                                        button(
+                                            class="view_details_pending_btn" 
+                                            data-id=`${encodeURIComponent(JSON.stringify(transaction))}`
+                                        ) View Details
 
         .section
             h2.title Completed transactions
@@ -64,7 +68,28 @@ block content
                                 td #{transaction.crypto}
                                 td #{transaction.amount}
                                 td= transaction.status
-                                td #[a(href=`/user/${transaction._id}/details`) View Details]
+                                td
+                                    button(
+                                        class="view_details_completed_btn" 
+                                        data-id=`${encodeURIComponent(JSON.stringify(transaction))}`
+                                    ) View Details
+
+        //- Modal pop up form view transaction details
+        .view_details_modal
+            .section
+                .user_card 
+                    .img_div
+                        img(
+                            width="100%"
+                            href="Payment Screenshot"
+                            class="view_details_image"
+                        )
+                    .details 
+                        .user_details
+                            p Coin: #[span(class="crypto_value")]
+                            p Amount: #[span(class="amount_value")]
+                            p Status: #[span(class="status_value")]
+                            p Wallet: #[span(class="wallet_value")]
 
     //- Modal pop up for buy form
     .buy_form_container(class=errorForm ? "show" : "")

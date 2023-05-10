@@ -168,6 +168,10 @@ table tr > td:last-child > div {
   display: none;
 }
 
+.view_details_modal {
+  display: none;
+}
+
 .show {
   top: 0;
   left: 0;
