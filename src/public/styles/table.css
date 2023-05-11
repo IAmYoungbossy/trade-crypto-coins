@@ -2,8 +2,15 @@
   width: 100%;
   margin: auto;
   padding: 10px;
+  margin-top: 20px;
   overflow-x: auto;
   font-family: sans-serif;
+}
+
+caption {
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding-bottom: 10px;
 }
 
 .section {
@@ -32,6 +39,7 @@ table td {
   color: #0c0049;
   padding: 0.625rem;
   font-family: sans-serif;
+  border: 1px solid #e0e0e0;
 }
 
 td a,
@@ -55,17 +63,17 @@ td a:hover,
 }
 
 table tr {
-  background-color: #fefefe4d;
+  background-color: white;
 }
 
 table th {
-  color: #c6cbff;
-  font-family: monospace;
-  background-color: #083c71;
+  color: black;
+  border: 1px solid #e0e0e0;
+  background-color: #596d4817;
 }
 
 table tr:nth-child(even) {
-  background-color: #596d482e;
+  background-color: #cfcaca3d;
 }
 
 table tr > td:last-child {
