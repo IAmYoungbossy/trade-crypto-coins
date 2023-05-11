@@ -4,23 +4,30 @@ mixin transactionRow(index, transaction)
         td #{transaction.user.first_name} #{transaction.user.last_name}
         td #{transaction.crypto}
         td #{transaction.amount}
-        td= transaction.status
+        td #[span(class=transaction.status==="pending" ? "pending" : transaction.status==="approved" ? "approved" : "cancelled" ) #{transaction.status}]
         td 
             button(
                 class="view_details_pending_btn" 
                 data-id=`${encodeURIComponent(JSON.stringify(transaction))}`
             ) View Details
         td 
-            form(
-                method="post"
-                action=`/admin/approve-transaction/${transaction._id}`
-            )
-                button(type="submit") Approve
-            form(
-                method="post"
-                action=`/admin/cancel-transaction/${transaction._id}`
-            )
-                button(type="submit") Cancel
+            if transaction.status==="pending"
+                form(
+                    method="post"
+                    action=`/admin/approve-transaction/${transaction._id}`
+                )
+                    button(type="submit" class="action_approve") Approve
+                form(
+                    method="post"
+                    action=`/admin/cancel-transaction/${transaction._id}`
+                )
+                    button(type="submit" class="action_cancel") Cancel
+            else 
+                form(
+                    method="post" 
+                    action=""
+                )
+                    button(type="submit" class="undo") Undo
 
 mixin tableHeader()
     thead
@@ -31,7 +38,7 @@ mixin tableHeader()
                 th Coin
                 th Amount
                 th Status
-                th View Details
+                th Details
                 th Actions
 
 mixin transactionSection(title, transactions)

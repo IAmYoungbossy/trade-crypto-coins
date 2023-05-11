@@ -84,3 +84,56 @@ a.btn_category:last-of-type {
 a.btn_category:nth-child(2) {
   background-color: forestgreen;
 }
+
+td span.pending,
+td span.approved,
+td span.cancelled {
+  all: unset;
+  color: white;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0px 5px 2px;
+}
+
+td span.pending {
+  background-color: #ff9800;
+}
+
+td span.approved {
+  background-color: forestgreen;
+}
+
+td span.cancelled {
+  background-color: orangered;
+}
+
+button[data-id] {
+  cursor: pointer;
+  color: darkblue;
+  border-radius: 5px;
+  padding: 3px 5px 2px;
+  border: 1px solid blue;
+  background-color: transparent;
+}
+
+button.action_approve,
+button.action_cancel {
+  all: unset;
+  width: 71px;
+  display: block;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px 5px 2px;
+}
+
+button.action_approve {
+  background-color: forestgreen;
+}
+
+button.action_cancel {
+  margin-top: 5px;
+  background-color: orangered;
+}
