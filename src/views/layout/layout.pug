@@ -16,7 +16,7 @@ html(lang="en")
   body
     header
       div
-        if admin
+        if pending || approved || cancelled
           h1 Dashboard 
         else
           a(href="/")

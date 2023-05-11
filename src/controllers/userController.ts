@@ -51,8 +51,8 @@ export const user_buy_post = [
 
   body("walletAddress")
     .trim()
-    .isBtcAddress()
-    .withMessage("Wallet Address Should be a BTC wallet address")
+    .isLength({ min: 1 })
+    .withMessage("Wallet Address Should 6 characters")
     .escape(),
 
   asyncHandler(async (req: Request, res: Response) => {

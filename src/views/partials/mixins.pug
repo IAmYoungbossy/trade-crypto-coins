@@ -34,15 +34,15 @@ mixin tableHeader()
                 th View Details
                 th Actions
 
-mixin transactionSection(title, pending)
+mixin transactionSection(title, transactions)
     .section
         #table_container
             table
                 caption #{title}
                 +tableHeader()
                 tbody
-                    if pending.length === 0
+                    if transactions.length === 0
                         p No #{title.toLowerCase()}
                     else 
-                        each transaction, index in pending
+                        each transaction, index in transactions
                             +transactionRow(index, transaction)

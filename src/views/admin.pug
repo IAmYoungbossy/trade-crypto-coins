@@ -3,9 +3,14 @@ include ./partials/mixins.pug
 block content
     main
         .trnx_category 
-            button Pending
-            button Approved
-            button Cancelled
-            +transactionSection('Pending transactions', pending)
-            +transactionSection('Approved transactions', approved)
-            +transactionSection('Cancelled transactions', cancelled)
+            a(href="/admin/pending") Pending
+            a(href="/admin/approved") Approved
+            a(href="/admin/cancelled") Cancelled
+
+            //- Transaction table
+            if pending
+                +transactionSection('Pending transactions', pending)
+            if approved
+                +transactionSection('Approved transactions', approved)
+            if cancelled
+                +transactionSection('Cancelled transactions', cancelled)
