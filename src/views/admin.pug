@@ -14,3 +14,8 @@ block content
                 +transactionSection('Approved transactions', approved)
             if cancelled
                 +transactionSection('Cancelled transactions', cancelled)
+
+        //- Modal pop up form view transaction details
+        include ./partials/view_details_modal.pug
+
+    script(type="text/javascript" src="/typescript/user.js")

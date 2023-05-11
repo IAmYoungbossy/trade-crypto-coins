@@ -167,19 +167,3 @@ table tr > td:last-child > div {
 .buy_form_container {
   display: none;
 }
-
-.view_details_modal {
-  display: none;
-}
-
-.show {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
-}

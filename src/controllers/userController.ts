@@ -28,6 +28,7 @@ const user_get = asyncHandler(
         style: "login",
         errorForm: false,
         tableStyle: "table",
+        details_modal: "details_modal",
       });
     }
   }
@@ -97,6 +98,7 @@ export const user_buy_post = [
         style: "login",
         errorForm: true,
         tableStyle: "table",
+        details_modal: "details_modal",
       };
 
       /** There are errors. Render the form again *

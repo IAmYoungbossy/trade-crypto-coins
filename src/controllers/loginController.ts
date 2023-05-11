@@ -1,7 +1,7 @@
 import asyncHandler from "express-async-handler";
+import { authenticateUser } from "./authenticateUser";
 import { Request, Response, NextFunction } from "express";
 import { body, validationResult } from "express-validator";
-import { authenticateUser } from "./authenticateUser";
 
 // GET the home page which is login page
 const login_get = (req: Request, res: Response) => {
