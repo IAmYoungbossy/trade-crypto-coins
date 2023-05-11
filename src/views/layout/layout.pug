@@ -16,8 +16,11 @@ html(lang="en")
   body
     header
       div
-        a(href="/")
-          h1 Snappy#[span Ex]change 
+        if admin
+          h1 Dashboard 
+        else
+          a(href="/")
+            h1 Snappy#[span Ex]change
         nav 
           div 
             if currentUser

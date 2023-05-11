@@ -1,77 +1,11 @@
 extends ./layout/layout
-
+include ./partials/mixins.pug
 block content
     main
-        p Welcome to the admin dashboard.
-        h2.title Pending transactions
-        .section
-            if pending.length === 0
-                p No pending transaction
-            else
-                each transaction, index in pending
-                    .user_card 
-                        .img_div
-                            img(
-                                width="100%"
-                                href="Payment Screenshot"
-                                src=`/images/${transaction.paymentScreenshot}`
-                            )
-                            .card_index S/N: #{index + 1}
-                        .details 
-                            .user_details
-                                p Coin: #{transaction.crypto}
-                                p Amount: #{transaction.amount}
-                                p Status: #{transaction.status}
-                                p Name: #{transaction.user.first_name} #{transaction.user.last_name} 
-                            .admin_action 
-                                form(
-                                    method="post"
-                                    action=`/admin/approve-transaction/${transaction._id}`
-                                )
-                                    button(type="submit") Approve
-                                form(
-                                    method="post"
-                                    action=`/admin/cancel-transaction/${transaction._id}`
-                                )
-                                    button(type="submit") Cancel
-
-        h2.title Approved transactions
-        .section
-            if approved.length === 0
-                p No approved transaction
-            else
-                each transaction, index in approved
-                    .user_card 
-                        .img_div
-                            img(
-                                width="100%"
-                                href="Payment Screenshot"
-                                src=`/images/${transaction.paymentScreenshot}`
-                            )
-                        .details 
-                            .user_details
-                                p Coin: #{transaction.crypto}
-                                p Amount: #{transaction.amount}
-                                p Status: #{transaction.status}
-                                p Name: #{transaction.user.first_name} #{transaction.user.last_name} 
-
-
-        h2.title Cancelled transactions
-        .section
-            if cancelled.length === 0
-                p No cancelled transaction
-            else
-                each transaction, index in cancelled
-                    .user_card 
-                        .img_div
-                            img(
-                                width="100%"
-                                href="Payment Screenshot"
-                                src=`/images/${transaction.paymentScreenshot}`
-                            )
-                        .details 
-                            .user_details
-                                p Coin: #{transaction.crypto}
-                                p Amount: #{transaction.amount}
-                                p Status: #{transaction.status}
-                                p Name: #{transaction.user.first_name} #{transaction.user.last_name} 
+        .trnx_category 
+            button Pending
+            button Approved
+            button Cancelled
+            +transactionSection('Pending transactions', pending)
+            +transactionSection('Approved transactions', approved)
+            +transactionSection('Cancelled transactions', cancelled)
