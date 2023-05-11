@@ -1,10 +1,10 @@
 #table_container {
   width: 100%;
   margin: auto;
+  padding: 10px;
   overflow-x: auto;
   max-width: 600px;
   font-family: sans-serif;
-  box-shadow: 0px 2px 11px 0px #00000045;
 }
 
 .section {
@@ -23,6 +23,7 @@ main table {
   font-size: 0.95rem;
   border: 1px solid #ddd;
   border-collapse: collapse;
+  box-shadow: 0px 2px 11px 0px #00000045;
   font-family: Arial, Helvetica, sans-serif;
 }
 

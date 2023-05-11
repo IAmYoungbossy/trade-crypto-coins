@@ -24,6 +24,7 @@ export const admin_pending_get = asyncHandler(
     res.render("admin", {
       pending,
       style: "admin",
+      tableStyle: "table",
       details_modal: "details_modal",
       title: "Admin Dashboard | Pending",
     });
@@ -41,6 +42,7 @@ export const admin_approved_get = asyncHandler(
     res.render("admin", {
       approved,
       style: "admin",
+      tableStyle: "table",
       details_modal: "details_modal",
       title: "Admin Dashboard | Approved",
     });
@@ -58,6 +60,7 @@ export const admin_cancelled_get = asyncHandler(
     res.render("admin", {
       cancelled,
       style: "admin",
+      tableStyle: "table",
       details_modal: "details_modal",
       title: "Admin Dashboard | Cancelled",
     });
