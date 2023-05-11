@@ -3,17 +3,17 @@ include ./partials/mixins.pug
 block content
     main
         .trnx_category 
-            a(href="/admin/pending") Pending
-            a(href="/admin/approved") Approved
-            a(href="/admin/cancelled") Cancelled
+            a(class="btn_category" href="/admin/pending") Pending
+            a(class="btn_category" href="/admin/approved") Approved
+            a(class="btn_category" href="/admin/cancelled") Cancelled
 
-            //- Transaction table
-            if pending
-                +transactionSection('Pending transactions', pending)
-            if approved
-                +transactionSection('Approved transactions', approved)
-            if cancelled
-                +transactionSection('Cancelled transactions', cancelled)
+        //- Transaction table
+        if pending
+            +transactionSection('Pending transactions', pending)
+        if approved
+            +transactionSection('Approved transactions', approved)
+        if cancelled
+            +transactionSection('Cancelled transactions', cancelled)
 
         //- Modal pop up form view transaction details
         include ./partials/view_details_modal.pug

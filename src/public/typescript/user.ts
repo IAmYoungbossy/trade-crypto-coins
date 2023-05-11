@@ -1,6 +1,16 @@
-const doc = document;
+const viewDetailsModal = document.querySelector(
+  ".view_details_modal"
+);
+const viewDetailsPending = document.querySelectorAll(
+  ".view_details_pending_btn"
+);
+const viewDetailsCompleted = document.querySelectorAll(
+  ".view_details_completed_btn"
+);
+const links = document.querySelectorAll(".btn_category");
+const caption = document.querySelector("table caption");
 
-doc.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => {
   const targetElement = e.target as HTMLElement;
   const formContainer = document.querySelector(
     ".buy_form_container"
@@ -16,16 +26,6 @@ doc.addEventListener("click", (e) => {
     e.stopPropagation();
   }
 });
-
-const viewDetailsModal = document.querySelector(
-  ".view_details_modal"
-);
-const viewDetailsPending = document.querySelectorAll(
-  ".view_details_pending_btn"
-);
-const viewDetailsCompleted = document.querySelectorAll(
-  ".view_details_completed_btn"
-);
 
 function setTransactionDetails(transaction: any) {
   const crypto = document.querySelector(".crypto_value");
@@ -73,4 +73,14 @@ viewDetailsPending.forEach((button) => {
 
 viewDetailsModal?.addEventListener("click", () => {
   viewDetailsModal.classList.remove("show");
+});
+
+links.forEach((link) => {
+  console.log(caption?.textContent);
+
+  if (link.textContent === caption?.textContent?.split(" ")[0]) {
+    link.classList.add("active");
+  } else {
+    link.classList.remove("active");
+  }
 });
