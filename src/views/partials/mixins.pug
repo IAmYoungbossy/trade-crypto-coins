@@ -32,7 +32,10 @@ mixin transactionRow(index, transaction)
                         button(type="submit" class="undo") Undo
         if currentUser.role==="user"&&transaction.status==="pending"
             td
-                form(method="post" action="")
+                form(
+                    method="post" 
+                    action=`/user/delete/${transaction._id}`
+                )
                     button(type="submit" class="action_cancel") Delete
 
 mixin tableHeader(transactions)
@@ -49,10 +52,9 @@ mixin tableHeader(transactions)
                 if (currentUser.role==="admin")
                     th Actions
                 if (currentUser.role==="user")
-                    if transactions.length > 0
-                        each transaction, index in transactions
-                            if (transaction.status==="pending")
-                                th Action
+                    - const pending = transactions.filter(trnx => trnx.status === "pending")
+                    if pending.length > 0
+                        th Action
 
 mixin transactionSection(title, transactions)
     .section

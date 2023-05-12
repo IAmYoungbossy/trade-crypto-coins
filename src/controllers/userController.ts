@@ -130,4 +130,15 @@ export const user_details_get = asyncHandler(
   }
 );
 
+// Renders a single transaction page
+export const delete_tranx = asyncHandler(
+  async (req: Request, res: Response) => {
+    const _id = req.params.id;
+
+    await Transaction.deleteOne({ _id });
+
+    res.redirect(`/user/${_id}`);
+  }
+);
+
 export default user_get;
