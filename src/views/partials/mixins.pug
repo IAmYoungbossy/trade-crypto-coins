@@ -68,7 +68,7 @@ mixin transactionSection(title, transactions)
                     if transactions.length > 0
                         each transaction, index in transactions
                             +transactionRow(index, transaction)
-                        
+
 mixin btn_category()
     .trnx_category 
         a(
@@ -87,5 +87,5 @@ mixin btn_category()
         else 
             a(
                 class="btn_category" 
-                href=`/user/${currentUser._id}`
+                href=`/user/completed/${currentUser._id}`
             ) Completed

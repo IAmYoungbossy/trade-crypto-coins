@@ -9,26 +9,54 @@ const user_get = asyncHandler(
     if (!res.locals.currentUser) res.redirect("/");
     else {
       const userId = res.locals.currentUser._id;
+      res.redirect(`/user/pending/${userId}`);
+    }
+  }
+);
 
-      const [pending, completed] = await Promise.all([
-        Transaction.find({
-          user: userId,
-          status: "pending",
-        }),
-        Transaction.find({
-          user: userId,
-          status: { $in: ["approved", "cancelled"] },
-        }),
-      ]);
+export const user_pending_get = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    if (!res.locals.currentUser) res.redirect("/");
+    else {
+      const userId = res.locals.currentUser._id;
+
+      const pending = await Transaction.find({
+        user: userId,
+        status: "pending",
+      });
+
       const title = `Dashboard | ${res.locals.currentUser.first_name}`;
       res.render("user", {
         title,
         pending,
-        completed,
-        // style: "login",
+        style: "admin",
         errorForm: false,
         tableStyle: "table",
+        details_modal: "details_modal",
+      });
+    }
+  }
+);
+
+export const user_completed_get = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    if (!res.locals.currentUser) res.redirect("/");
+    else {
+      const userId = res.locals.currentUser._id;
+
+      const completed = await Transaction.find({
+        user: userId,
+        status: { $in: ["approved", "cancelled"] },
+      });
+
+      const title = `Dashboard | ${res.locals.currentUser.first_name}`;
+
+      res.render("user", {
+        title,
+        completed,
         style: "admin",
+        errorForm: false,
+        tableStyle: "table",
         details_modal: "details_modal",
       });
     }

@@ -24,8 +24,10 @@ block content
 
         +btn_category()
 
-        +transactionSection('Pending transactions', pending)
-        +transactionSection('Completed transactions', completed)
+        if (pending)
+            +transactionSection('Pending transactions', pending)
+        if (completed)
+            +transactionSection('Completed transactions', completed)
 
         //- Modal pop up form view transaction details
         include ./partials/view_details_modal.pug
