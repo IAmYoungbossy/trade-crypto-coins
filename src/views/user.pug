@@ -2,12 +2,10 @@ extends ./layout/layout
 include ./partials/mixins.pug
 block content  
     main 
-        p.welcome Hello #{currentUser.first_name}, great to have you here.
+        h2.welcome Hello #{currentUser.first_name}, great to have you here.
         p.instruction Click the button below to buy your favourite cryptocurrency.
         br
         button(class="buy_button") Buy Coin
-        .available_coin
-            p Available coins
         .currency
             .crypto_card 
                 div 

@@ -125,7 +125,7 @@ table tr > td:last-child > div {
   gap: 1.25rem;
   display: flex;
   flex-wrap: wrap;
-  max-width: 600px;
+  max-width: 576px;
   margin: 1rem 0 1.5rem;
   justify-content: space-evenly;
 }
@@ -174,4 +174,17 @@ table tr > td:last-child > div {
 
 .buy_form_container {
   display: none;
+}
+
+.buy_button {
+  all: unset;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid #007eff;
+  box-shadow: 2px 2px 10px #00000029;
+}
+
+.buy_button:hover {
+  color: white;
+  background-color: #007eff;
 }
