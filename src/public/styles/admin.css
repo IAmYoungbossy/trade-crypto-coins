@@ -50,7 +50,6 @@ main > h2 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 10px;
   margin-top: 30px;
   max-width: 600px;
   justify-content: space-between;
@@ -100,21 +99,26 @@ td span.cancelled {
 }
 
 td span.pending {
+  max-width: 61px;
+  text-align: center;
   background-color: #ff9800;
   text-shadow: 0px 2px 4px #0000008c;
 }
 
 td span.approved {
+  max-width: 61px;
   background-color: #228b22bd;
 }
 
 td span.cancelled {
+  max-width: 61px;
   background-color: #ff4500d1;
 }
 
 button[data-id] {
   cursor: pointer;
   color: #ffffff;
+  width: max-content;
   border-radius: 5px;
   padding: 3px 5px 2px;
   border: 1px solid #0000ff00;
@@ -127,8 +131,8 @@ button[data-id]:hover {
   outline: 1px solid black;
 }
 
-button.action_approve,
-button.action_cancel {
+.action_approve,
+.action_cancel {
   all: unset;
   width: 71px;
   display: block;
@@ -141,16 +145,16 @@ button.action_cancel {
   box-shadow: 3px 2px 4px #00000040;
 }
 
-button.action_approve:hover,
-button.action_cancel:hover {
+.action_approve:hover,
+.action_cancel:hover {
   outline: 1px solid black;
 }
 
-button.action_approve {
+.action_approve {
   background-color: #00a500c2;
 }
 
-button.action_cancel {
+.action_cancel {
   margin-top: 5px;
   background-color: #ff4500e8;
 }

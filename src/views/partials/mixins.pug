@@ -1,42 +1,44 @@
 mixin transactionRow(index, transaction)
     tr
-        td #{index + 1}
+        td(data-cell="#") #{index + 1}
         if (currentUser.role==="admin")
-            td #{transaction.user.first_name} #{transaction.user.last_name}
-        td #{transaction.crypto}
-        td #{transaction.amount}
-        td #[span(class=transaction.status==="pending" ? "pending" : transaction.status==="approved" ? "approved" : "cancelled" ) #{transaction.status}]
-        td 
+            td(data-cell="name") #{transaction.user.first_name} #{transaction.user.last_name}
+        td(data-cell="crpto") #{transaction.crypto}
+        td(data-cell="amount") #{transaction.amount}
+        td(data-cell="status") #[span(class=transaction.status==="pending" ? "pending" : transaction.status==="approved" ? "approved" : "cancelled" ) #{transaction.status}]
+        td(data-cell="details") 
             button(
                 class="view_details_pending_btn" 
                 data-id=`${encodeURIComponent(JSON.stringify(transaction))}`
             ) View Details
         if (currentUser.role==="admin")
-            td 
-                if transaction.status==="pending"
-                    form(
-                        method="post"
-                        action=`/admin/approve-transaction/${transaction._id}`
-                    )
-                        button(type="submit" class="action_approve") Approve
-                    form(
-                        method="post"
-                        action=`/admin/cancel-transaction/${transaction._id}`
-                    )
-                        button(type="submit" class="action_cancel") Cancel
-                else 
+            td(data-cell="action")
+                .form_container 
+                    if transaction.status==="pending"
+                        form(
+                            method="post"
+                            action=`/admin/approve-transaction/${transaction._id}`
+                        )
+                            button(type="submit" class="action_approve") Approve
+                        form(
+                            method="post"
+                            action=`/admin/cancel-transaction/${transaction._id}`
+                        )
+                            button(type="submit" class="action_cancel") Cancel
+                    else 
+                        form(
+                            method="post" 
+                            action=`/admin/undone-transaction/${transaction._id}`
+                        )
+                            button(type="submit" class="undo") Undo
+        if currentUser.role==="user"&&transaction.status==="pending"
+            td(data-cell="delete")
+                .form_container
                     form(
                         method="post" 
-                        action=`/admin/undone-transaction/${transaction._id}`
+                        action=`/user/delete/${transaction._id}`
                     )
-                        button(type="submit" class="undo") Undo
-        if currentUser.role==="user"&&transaction.status==="pending"
-            td
-                form(
-                    method="post" 
-                    action=`/user/delete/${transaction._id}`
-                )
-                    button(type="submit" class="action_cancel") Delete
+                        button(type="submit" class="action_cancel") Delete
 
 mixin tableHeader(transactions)
     thead

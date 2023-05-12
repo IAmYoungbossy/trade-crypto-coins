@@ -8,9 +8,10 @@
 }
 
 caption {
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 1.3rem;
   padding-bottom: 10px;
+  font-family: sans-serif;
 }
 
 .section {
@@ -80,14 +81,14 @@ table tr > td:last-child {
   position: relative;
 }
 
-table tr > td:last-child > div button {
+/* table tr > td:last-child > div button {
   border: none;
   cursor: pointer;
   padding: 1px 6px;
   border-radius: 5px;
   outline: 1px solid;
   background-color: transparent;
-}
+} */
 
 table tr > td:last-child > div > button:first-child {
   outline-color: red;
@@ -187,4 +188,31 @@ table tr > td:last-child > div {
 .buy_button:hover {
   color: white;
   background-color: #007eff;
+}
+
+@media screen and (max-width: 600px) {
+  td {
+    display: grid;
+    padding: 0.45rem;
+    border: none !important;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  th {
+    display: none;
+  }
+
+  td::before {
+    font-weight: 700;
+    text-transform: capitalize;
+    content: attr(data-cell) ": ";
+  }
+
+  td:first-of-type::before {
+    content: "S/N: ";
+  }
+}
+
+.form_container {
+  all: unset !important;
 }

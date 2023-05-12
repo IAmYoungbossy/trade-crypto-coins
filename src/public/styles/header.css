@@ -76,10 +76,19 @@ nav {
   justify-content: space-between;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 600px) {
   header > div {
     column-gap: 1.3rem;
-    justify-content: center;
+    justify-content: space-between;
+  }
+  header {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  header {
+    padding: 1.25rem 0.9rem;
   }
 }
 
