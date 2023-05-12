@@ -1,5 +1,5 @@
 extends ./layout/layout
-
+include ./partials/mixins.pug
 block content  
     main 
         p.welcome Hello #{currentUser.first_name}, great to have you here.
@@ -21,58 +21,9 @@ block content
                 div 
                     p Pair: ETH/NGN
                     p Price: NGN 1,364,632.50
-        .section
-            h2.title Pending transactions
-            if pending.length === 0
-                p No pending transaction
-            else
-                #table_container
-                    table
-                        thead
-                            tr
-                                th S/N
-                                th Coin
-                                th Amount
-                                th Status
-                                th Screenshot
-                        tbody
-                            each transaction, index in pending
-                                tr
-                                    td #{index + 1}
-                                    td #{transaction.crypto}
-                                    td #{transaction.amount}
-                                    td= transaction.status
-                                    td 
-                                        button(
-                                            class="view_details_pending_btn" 
-                                            data-id=`${encodeURIComponent(JSON.stringify(transaction))}`
-                                        ) View Details
-
-        .section
-            h2.title Completed transactions
-            if completed.length === 0
-                p No completed transaction yet.
-            else
-                table
-                    thead
-                        tr
-                            th S/N
-                            th Coin
-                            th Amount
-                            th Status
-                            th Screenshot
-                    tbody
-                        each transaction, index in completed
-                            tr
-                                td #{index + 1}
-                                td #{transaction.crypto}
-                                td #{transaction.amount}
-                                td= transaction.status
-                                td
-                                    button(
-                                        class="view_details_completed_btn" 
-                                        data-id=`${encodeURIComponent(JSON.stringify(transaction))}`
-                                    ) View Details
+                    
+        +transactionSection('Pending transactions', pending)
+        +transactionSection('Completed transactions', completed)
 
         //- Modal pop up form view transaction details
         include ./partials/view_details_modal.pug

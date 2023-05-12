@@ -25,9 +25,10 @@ const user_get = asyncHandler(
         title,
         pending,
         completed,
-        style: "login",
+        // style: "login",
         errorForm: false,
         tableStyle: "table",
+        style: "admin",
         details_modal: "details_modal",
       });
     }
