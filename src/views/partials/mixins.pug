@@ -69,3 +69,23 @@ mixin transactionSection(title, transactions)
                         each transaction, index in transactions
                             +transactionRow(index, transaction)
                         
+mixin btn_category()
+    .trnx_category 
+        a(
+            class="btn_category" 
+            href=currentUser.role==="admin" ? "/admin/pending" : `/user/${currentUser._id}`
+        ) Pending
+        if (currentUser.role==="admin")
+            a(
+                class="btn_category" 
+                href="/admin/approved"
+            ) Approved
+            a(
+                class="btn_category" 
+                href="/admin/cancelled"
+            ) Cancelled
+        else 
+            a(
+                class="btn_category" 
+                href=`/user/${currentUser._id}`
+            ) Completed

@@ -2,10 +2,7 @@ extends ./layout/layout
 include ./partials/mixins.pug
 block content
     main
-        .trnx_category 
-            a(class="btn_category" href="/admin/pending") Pending
-            a(class="btn_category" href="/admin/approved") Approved
-            a(class="btn_category" href="/admin/cancelled") Cancelled
+        +btn_category()
 
         //- Transaction table
         if pending
