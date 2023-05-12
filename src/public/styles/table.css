@@ -81,15 +81,6 @@ table tr > td:last-child {
   position: relative;
 }
 
-/* table tr > td:last-child > div button {
-  border: none;
-  cursor: pointer;
-  padding: 1px 6px;
-  border-radius: 5px;
-  outline: 1px solid;
-  background-color: transparent;
-} */
-
 table tr > td:last-child > div > button:first-child {
   outline-color: red;
 }
