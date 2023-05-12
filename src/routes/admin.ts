@@ -6,6 +6,7 @@ import {
   admin_cancelled_get,
   admin_approved_post,
   admin_cancelled_post,
+  admin_undo_post,
 } from "../controllers/adminController";
 
 const adminRouter = Router();
@@ -21,6 +22,9 @@ adminRouter.post(
   "/approve-transaction/:id",
   admin_approved_post
 );
+
+// Undo a transaction
+adminRouter.post("/undone-transaction/:id", admin_undo_post);
 
 // Cancels a transaction
 adminRouter.post(

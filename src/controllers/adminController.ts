@@ -83,6 +83,29 @@ export const admin_approved_post = asyncHandler(
   }
 );
 
+// POST undo a transaction and render admin dashboard
+export const admin_undo_post = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const transaction = await Transaction.findById(
+      req.params.id
+    );
+    if (!transaction) {
+      res.status(404).send("Transaction not found");
+      return;
+    }
+    await transaction.save();
+    if (transaction.status === "approved") {
+      transaction.status = "pending";
+      await transaction.save();
+      res.redirect("/admin/approved");
+    } else {
+      transaction.status = "pending";
+      await transaction.save();
+      res.redirect("/admin/cancelled");
+    }
+  }
+);
+
 // POST cancelled transaction and render admin dashboard
 export const admin_cancelled_post = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {

@@ -25,7 +25,7 @@ mixin transactionRow(index, transaction)
             else 
                 form(
                     method="post" 
-                    action=""
+                    action=`/admin/undone-transaction/${transaction._id}`
                 )
                     button(type="submit" class="undo") Undo
 
@@ -46,10 +46,11 @@ mixin transactionSection(title, transactions)
         #table_container
             table
                 caption #{title}
+                    if transactions.length === 0
+                        small No #{title.toLowerCase()}
                 +tableHeader()
                 tbody
-                    if transactions.length === 0
-                        p No #{title.toLowerCase()}
-                    else 
+                    if transactions.length > 0
                         each transaction, index in transactions
                             +transactionRow(index, transaction)
+                        
