@@ -23,10 +23,11 @@ header > div > div:last-of-type a {
   border-radius: 0.2rem;
   padding: 0.3rem 0.6rem;
 }
+
 nav a:hover,
 header > div > div:last-of-type a:hover {
-  color: #263d54;
-  background-color: wheat;
+  color: #ffffff;
+  background-color: #081bff;
 }
 
 header > div {
@@ -39,7 +40,7 @@ header > div {
   justify-content: space-between;
 }
 
-span {
+header span {
   top: 4px;
   width: 18px;
   height: 25px;
@@ -63,6 +64,7 @@ h1 {
   position: relative;
   text-decoration: underline;
   text-decoration-style: double;
+  text-decoration-color: darkblue;
   text-shadow: 8px 1px 4px #00000085;
 }
 

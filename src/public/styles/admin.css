@@ -72,6 +72,10 @@ a.btn_category {
   box-shadow: 5px 6px 12px 0px #00000030;
 }
 
+a.btn_category:hover {
+  outline: 1px solid black;
+}
+
 a.active {
   min-height: 12px !important;
   border-bottom: 3px solid #0000004f;
@@ -119,6 +123,10 @@ button[data-id] {
   text-shadow: 0px 2px 4px #0000008c;
 }
 
+button[data-id]:hover {
+  outline: 1px solid black;
+}
+
 button.action_approve,
 button.action_cancel {
   all: unset;
@@ -131,6 +139,11 @@ button.action_cancel {
   padding: 3px 5px 2px;
   text-shadow: 0px 2px 4px #0000008c;
   box-shadow: 3px 2px 4px #00000040;
+}
+
+button.action_approve:hover,
+button.action_cancel:hover {
+  outline: 1px solid black;
 }
 
 button.action_approve {
@@ -161,4 +174,9 @@ small {
 
 button {
   text-shadow: 0px 2px 4px #0000008c;
+}
+
+.bold {
+  all: unset;
+  font-weight: 600;
 }
