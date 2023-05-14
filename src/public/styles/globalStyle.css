@@ -7,14 +7,19 @@
 }
 
 body {
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
   background-color: #fff;
   font: 0.875rem "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 main {
+  flex: 1;
   display: flex;
   padding: 0 1rem;
   align-items: center;
   flex-direction: column;
+  background-color: #6969690f;
+  background: radial-gradient(#0000001f, #fff7db00);
 }

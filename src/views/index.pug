@@ -2,16 +2,13 @@ extends ./layout/layout
 
 block content
   main
-    p please log in
-    p Note: For Admin access, use the details below.
-    p username: admin 
-    p password: admin
-
     form(
       class="form"
       method="POST"
       action="/login"
     )
+      h2 Sign Up 
+      small for Admin access use #[em admin] for username and #[em admin1] for password
       div
         label(for="username") Username
         input(
