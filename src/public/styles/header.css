@@ -40,32 +40,8 @@ header > div {
   justify-content: space-between;
 }
 
-header span {
-  top: 4px;
-  width: 18px;
-  height: 25px;
-  left: -0.2rem;
-  color: #ffffff;
-  font-size: 1.5rem;
-  position: relative;
-  font-family: cursive;
-  display: inline-block;
-  animation: rotate 2s linear infinite;
-  text-shadow: 1px 3px 3px #00000061;
-}
-
 header > div {
   position: relative;
-}
-
-h1 {
-  color: #000000;
-  bottom: 0.1875rem;
-  position: relative;
-  text-decoration: underline;
-  text-decoration-style: double;
-  text-decoration-color: darkblue;
-  text-shadow: 8px 1px 4px #00000085;
 }
 
 nav {

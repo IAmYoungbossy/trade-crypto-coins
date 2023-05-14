@@ -2,12 +2,13 @@ extends ./layout/layout
 
 block content
     main 
-        p Sign Up 
-        p Note: All fields are required
         form(
             action="" 
             method="POST"
         )
+            h2 Sign Up 
+            small Note: All fields are required
+
             div
                 label(for="username") Username: 
                 input(
@@ -58,7 +59,6 @@ block content
                     for err in error 
                         li #{err.msg}
 
-            div 
-                a(href="/") Login
-
             button Sign Up
+
+            .login_div #[p Already have an account? #[a(href="/") Login]]

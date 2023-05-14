@@ -8,54 +8,64 @@ main > p:first-of-type {
   text-shadow: 1px 3px 5px #00000061;
 }
 
-.buy_form_container form,
-form {
-  width: 100%;
-  max-width: 25rem;
-}
-
 .buy_form_container form > div,
 form > div {
   display: flex;
-  margin-top: 1rem;
   flex-direction: column;
 }
-input,
-button,
-select,
-textarea,
-.buy_form_container form input,
-.buy_form_container form button,
-.buy_form_container form select,
-.buy_form_container form textarea {
+
+.buy_form_container form,
+form {
+  gap: 5px;
+  width: 100%;
+  display: flex;
+  max-width: 350px;
+  flex-direction: column;
+  margin: 35px auto 89px;
+  padding: 15px 25px 25px;
+  font-family: sans-serif;
+  background-color: #ffffff03;
+  border: 1px solid #0000002b;
+  box-shadow: 2px 3px 11px 2px #00000029;
+}
+
+form button:first-of-type {
   outline: none;
-  padding: 0.5rem;
-  border-radius: 0.3125rem;
-  border: 1px solid #0000ffa8;
+  color: #fff;
+  margin-top: 6px;
+  font-weight: 600;
+  border: 1px solid;
+  background-color: #0d6efd;
 }
 
-.buy_form_container form label,
-label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #3d2db1cf;
-  margin-bottom: 0.5rem;
-  font-family: sans-serif;
-  text-shadow: 3px 3px 6px #6900cb70;
+form button,
+form input {
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  max-width: 300px;
 }
 
-.buy_form_container form button,
-button {
+form > small,
+form > h2 {
+  text-align: center;
+}
+
+small {
+  margin-bottom: 10px;
+}
+
+form label {
   font-weight: 600;
-  margin: 1.25rem 0;
-  color: #3d2db1cf;
-  max-width: max-content;
-  font-family: sans-serif;
-  border-color: #5cbbba;
-  border: 1px solid blue;
-  border-radius: 0.3125rem;
-  background-color: #fff;
-  padding: 0.425rem 1.25rem;
-  box-shadow: 4px 4px 6px #0000003b;
-  text-shadow: 3px 3px 6px #6900cb70;
+}
+
+form .login_div {
+  font-size: 0.8rem;
+}
+
+form .login_div a {
+  text-decoration: none;
+}
+input:not(:placeholder-shown) {
+  background-color: white;
 }
