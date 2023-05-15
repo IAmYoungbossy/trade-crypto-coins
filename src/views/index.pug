@@ -7,7 +7,7 @@ block content
       method="POST"
       action="/login"
     )
-      h2 Sign Up 
+      h2 Login 
       small for Admin access use #[em admin] for username and #[em admin1] for password
       div
         label(for="username") Username
@@ -28,7 +28,7 @@ block content
         )
 
       div 
-        a(href="/sign-up") Sign Up
+        p Don't have an account? #[a(href="/sign-up") Sign Up]
 
       if error 
         ul 
@@ -36,3 +36,5 @@ block content
             li #{err.msg}
 
       button Log In
+
+  script(type="text/javascript" src="/typescript/user.js")

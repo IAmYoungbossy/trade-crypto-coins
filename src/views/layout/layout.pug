@@ -30,6 +30,9 @@ html(lang="en")
             if currentUser
               p Hi #{currentUser.first_name} | #[a(href="/log-out") Log Out]
             else 
-              a(href="/sign-up") Sign Up
+              if isSignUp 
+                a(href="/") Login 
+              else
+                a(href="/sign-up") Sign Up
 
     block content

@@ -17,6 +17,7 @@ const login_get = (req: Request, res: Response) => {
   } else {
     res.render("index", {
       style: "login",
+      tableStyle: "table",
       title: "Snappy Exchange",
       login_sub_style: "login_sub_style",
     });

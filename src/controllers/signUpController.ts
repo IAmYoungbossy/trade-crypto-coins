@@ -9,6 +9,7 @@ import { body, validationResult } from "express-validator";
 export const sign_up_get = (req: Request, res: Response) => {
   res.render("sign-up-form", {
     style: "login",
+    isSignUp: "is sign up",
     login_sub_style: "login_sub_style",
   });
 };
