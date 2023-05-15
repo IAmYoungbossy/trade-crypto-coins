@@ -30,6 +30,7 @@ export const user_pending_get = asyncHandler(
         title,
         pending,
         style: "admin",
+        style2: "login",
         errorForm: false,
         tableStyle: "table",
         details_modal: "details_modal",

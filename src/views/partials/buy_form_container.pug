@@ -6,8 +6,9 @@
         enctype="multipart/form-data"
         action=`/user/${currentUser._id}/buy`
     )
+        p Enter details to buy
         div
-            label(for='crypto') Select a coin:
+            label(for='crypto') Coin:
             select(
                 name="crypto"
                 value=(underfined===transaction ? "" : `${transaction.crypto}`)
@@ -34,7 +35,7 @@
             )
 
         div
-            label(for='paymentScreenshot') Payment Screenshot:
+            label(for='paymentScreenshot') Payment Receipt:
             input(
                 required
                 type='file'
