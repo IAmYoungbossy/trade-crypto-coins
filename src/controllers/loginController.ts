@@ -18,7 +18,7 @@ const login_get = (req: Request, res: Response) => {
     res.render("index", {
       style: "login",
       tableStyle: "table",
-      title: "Snappy Exchange",
+      title: "CoineX",
       login_sub_style: "login_sub_style",
     });
   }
@@ -52,7 +52,7 @@ export const login_post = [
         error,
         loginDetails,
         style: "login",
-        title: "Snappy Exchange",
+        title: "CoineX",
         login_sub_style: "login_sub_style",
       };
 

@@ -6,7 +6,7 @@
         enctype="multipart/form-data"
         action=`/user/${currentUser._id}/buy`
     )
-        p Enter details to buy
+        p(class="all_fields") #[b Note:] All fields are required.
         div
             label(for='crypto') Coin:
             select(

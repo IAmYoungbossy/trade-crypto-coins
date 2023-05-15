@@ -8,7 +8,8 @@ block content
       action="/login"
     )
       h2 Login 
-      small for Admin access use #[em admin] for username and #[em admin1] for password
+      small For Admin access, use #[em admin] for username and #[em admin1] for password
+
       div
         label(for="username") Username
         input(
@@ -28,7 +29,7 @@ block content
         )
 
       div 
-        p Don't have an account? #[a(href="/sign-up") Sign Up]
+        p Don't have an account? #[a(href="/sign-up" class="sign_up_link") Sign Up]
 
       if error 
         ul 

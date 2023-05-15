@@ -83,3 +83,17 @@ input:focus-visible {
   outline: none;
   border: 1px solid grey;
 }
+
+.sign_up_link {
+  font-weight: 600;
+}
+
+li {
+  color: red;
+  font-size: 0.7rem;
+  list-style: inside;
+}
+
+.all_fields {
+  text-align: center;
+}
