@@ -76,8 +76,6 @@ viewDetailsModal?.addEventListener("click", () => {
 });
 
 links.forEach((link) => {
-  console.log(caption?.textContent);
-
   if (link.textContent === caption?.textContent?.split(" ")[0]) {
     link.classList.add("active");
   } else {
