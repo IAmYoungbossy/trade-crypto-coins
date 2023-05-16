@@ -23,3 +23,8 @@ main {
   background-color: #6969690f;
   background: radial-gradient(#f3c9c9db, #ebedf6, #fff);
 }
+
+.error_page {
+  margin: auto;
+  width: max-content;
+}

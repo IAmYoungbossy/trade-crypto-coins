@@ -23,7 +23,3 @@ A live demo of the application is available at [Live Demo](https://trade-crypto-
 - Delete transaction: User can delete pending transaction.
 
 - Undo actions: Admin can undo an approved or cancelled transaction.
-
-## Challenges
-
-- Power outage: the development process was interrupted by an unexpected power outage, which resulted in a delay in the completion of the project.
